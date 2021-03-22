@@ -1686,6 +1686,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/module-type-aliases@npm:^2.0.0-alpha.72":
+  version: 2.0.0-alpha.ffe8b6106
+  resolution: "@docusaurus/module-type-aliases@npm:2.0.0-alpha.ffe8b6106"
+  checksum: e1cb71f0f8833b4bc28a974af56dfab1e39c7a23a6a9a38ccf7294caad83549bcf31c62183b10bd042984ab82591b286b0024222ccad9455daedb53b89eae217
+  languageName: node
+  linkType: hard
+
 "@docusaurus/plugin-content-blog@npm:2.0.0-alpha.72":
   version: 2.0.0-alpha.72
   resolution: "@docusaurus/plugin-content-blog@npm:2.0.0-alpha.72"
@@ -2265,6 +2272,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/docusaurus@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@tsconfig/docusaurus@npm:1.0.2"
+  checksum: 94edb244f8c1b4a1ce99f7092749c15dd96473d326b5638d54316f39b98bdb6862b8ff64df45e966229d00c1b2ccbef662ac0d1702d2147b6925385b0ffab493
+  languageName: node
+  linkType: hard
+
 "@types/anymatch@npm:*":
   version: 1.3.1
   resolution: "@types/anymatch@npm:1.3.1"
@@ -2295,6 +2309,13 @@ __metadata:
   dependencies:
     "@types/unist": "*"
   checksum: 8aff367be477854d6cd3e5cf03d7154cd163a67bc3266777c2f4b1c32d07a335420ba58a8a799965dbc3190f1ed9989880008afb1392043290acc384a155a7a3
+  languageName: node
+  linkType: hard
+
+"@types/history@npm:*":
+  version: 4.7.8
+  resolution: "@types/history@npm:4.7.8"
+  checksum: 54020371a412e949d0a329cc325253f16daf5b33e2e485135d39d3b30d3f9a8e323b00ce1162da82387c8ecf0397a8da49ad36ab309f06284326c064092879c7
   languageName: node
   linkType: hard
 
@@ -2372,6 +2393,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-helmet@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "@types/react-helmet@npm:6.1.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: b7aaa3aa2d81cd3b14a0e77a858de86934a3400f4ec35945117edb3979b8a41130e70b8a27241de295195e365962a9b5bc149a2a029d23795fd0f6c740d1de77
+  languageName: node
+  linkType: hard
+
+"@types/react-router-dom@npm:^5.1.7":
+  version: 5.1.7
+  resolution: "@types/react-router-dom@npm:5.1.7"
+  dependencies:
+    "@types/history": "*"
+    "@types/react": "*"
+    "@types/react-router": "*"
+  checksum: c5afe043f99cbe8e05e85db5b95b5fd724e7b00e0314b8bbc081e36c113e22fd102cd0c7a957c7ad55a55d2def91c17b07ffba45c2ac4a00cc56c5c927c93d4c
+  languageName: node
+  linkType: hard
+
+"@types/react-router@npm:*":
+  version: 5.1.12
+  resolution: "@types/react-router@npm:5.1.12"
+  dependencies:
+    "@types/history": "*"
+    "@types/react": "*"
+  checksum: a94fbbd2b29b3eb3542de8fdfc2ccd42d9ac88434529234bde2a1b604a7b38158b277180bf94cb4e73150d3d69b1ffc1e53ed0bbc90514489fddeeb378e28b16
+  languageName: node
+  linkType: hard
+
 "@types/react-toggle@npm:^4.0.2":
   version: 4.0.2
   resolution: "@types/react-toggle@npm:4.0.2"
@@ -2381,7 +2432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^17.0.3":
   version: 17.0.3
   resolution: "@types/react@npm:17.0.3"
   dependencies:
@@ -4553,12 +4604,18 @@ __metadata:
   resolution: "cs-361@workspace:."
   dependencies:
     "@docusaurus/core": 2.0.0-alpha.72
+    "@docusaurus/module-type-aliases": ^2.0.0-alpha.72
     "@docusaurus/preset-classic": 2.0.0-alpha.72
     "@mdx-js/react": ^1.6.21
+    "@tsconfig/docusaurus": ^1.0.2
+    "@types/react": ^17.0.3
+    "@types/react-helmet": ^6.1.0
+    "@types/react-router-dom": ^5.1.7
     clsx: ^1.1.1
     docusaurus-plugin-auto-sidebars: ^1.0.7
     react: ^17.0.1
     react-dom: ^17.0.1
+    typescript: ^4.2.3
   languageName: unknown
   linkType: soft
 
@@ -12904,6 +12961,26 @@ fsevents@~2.3.1:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: c9ef0176aaf32593514c31e5c6edc1db970847aff6e1f0a0570a6ac0cc996335792f394c2fcec59cc76691d22a01888ea073a2f3c6930cfcf7c519addf4e2ad7
+  languageName: node
+  linkType: hard
+
+typescript@^4.2.3:
+  version: 4.2.3
+  resolution: "typescript@npm:4.2.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 06e8470f317db6f5e2fce809b20eb84a67a7d8179057abff36e5427bd1b891bd08e54581ff81f0fa36aef9b6d1eb0f54eaf6e2643c6dbd4e37a0adcc41eed256
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.2.3#builtin<compat/typescript>":
+  version: 4.2.3
+  resolution: "typescript@patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: a8956044aabf730699bcc3c2475efdd3f35e509329325cf60b4989761d4c2188e2c474183e2cf92b8c201fcf976814a5a16f144508b2a832643c4f972d0ab803
   languageName: node
   linkType: hard
 

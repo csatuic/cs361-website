@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: "CS 361: Systems Programming"
 slug: /
 ---
 

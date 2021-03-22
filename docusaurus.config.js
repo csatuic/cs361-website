@@ -80,7 +80,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.auto.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/csatuic/cs361-website-next/',
+            'https://github.com/kaytwo/cs361-website-next/edit/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
