@@ -1940,6 +1940,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/types@npm:^2.0.0-alpha.50":
+  version: 2.0.0-alpha.ffe8b6106
+  resolution: "@docusaurus/types@npm:2.0.0-alpha.ffe8b6106"
+  dependencies:
+    "@types/webpack": ^4.41.0
+    commander: ^5.1.0
+    querystring: 0.2.0
+    webpack-merge: ^4.2.2
+  checksum: 4ef586058a8dfe284e49e3ee8be91c8531f06b22d93ba504735ac69025a77453228ac543daf8730cc2f3694e1840e17fa7132846fe72491edd21380ad1820734
+  languageName: node
+  linkType: hard
+
 "@docusaurus/utils-validation@npm:2.0.0-alpha.72":
   version: 2.0.0-alpha.72
   resolution: "@docusaurus/utils-validation@npm:2.0.0-alpha.72"
@@ -4544,6 +4556,7 @@ __metadata:
     "@docusaurus/preset-classic": 2.0.0-alpha.72
     "@mdx-js/react": ^1.6.21
     clsx: ^1.1.1
+    docusaurus-plugin-auto-sidebars: ^1.0.7
     react: ^17.0.1
     react-dom: ^17.0.1
   languageName: unknown
@@ -5134,6 +5147,16 @@ __metadata:
   dependencies:
     buffer-indexof: ^1.0.0
   checksum: 62d4b87b09421f813dd03eb17866cb307e278555475b25752396d3e5c7e63b9f0f64ab5b41edeb755cb52d722600a89977d36c64a94d02ed92c32e44a8b849f2
+  languageName: node
+  linkType: hard
+
+"docusaurus-plugin-auto-sidebars@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "docusaurus-plugin-auto-sidebars@npm:1.0.7"
+  dependencies:
+    "@docusaurus/types": ^2.0.0-alpha.50
+    js-yaml: ^3.13.1
+  checksum: 091a16b5c3ff304b6bc807f16785828fdb21f73dad8f147d5852713e05ea65694e2e21692f46ff56b4c5b89f6ca555ba51d09708236f2f5cf2f236f6372d9496
   languageName: node
   linkType: hard
 
