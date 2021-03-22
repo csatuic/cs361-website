@@ -77,10 +77,10 @@ module.exports = {
       {
         docs: {
           routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.auto.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/csatuic/cs361-website/',
+            'https://github.com/csatuic/cs361-website-next/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

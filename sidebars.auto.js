@@ -6,15 +6,10 @@ module.exports = {
     "getting-started",
     {
         "type": "category",
-        "label": "homeworks",
+        "label": "these are homeworks",
         "items": [
             "homeworks/hw1"
         ]
-    },
-    {
-        "type": "category",
-        "label": "labs",
-        "items": []
     },
     "markdown-features",
     "syllabus",
