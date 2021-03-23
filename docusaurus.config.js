@@ -1,69 +1,70 @@
+const path = require("path");
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
-  url: 'https://www.cs.uic.edu/~ckanich/cs361/next/',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/uic.svg',
-  organizationName: 'csatuic', // Usually your GitHub org/user name.
-  projectName: 'cs361-website', // Usually your repo name.
+  title: "CS 361: Systems Programming",
+  tagline: "Getting to know your operating system",
+  url: "https://www.cs.uic.edu/~ckanich/cs361/next/",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/uic.svg",
+  organizationName: "csatuic", // Usually your GitHub org/user name.
+  projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'CS 361: Systems Programming',
+      title: "CS 361: Systems Programming",
       logo: {
-        alt: 'UIC Logo',
-        src: 'img/uic.svg',
+        alt: "UIC Logo",
+        src: "img/uic.svg",
       },
       items: [
         {
-          to: 'syllabus/',
-          label: 'Syllabus',
-          position: 'left',
+          to: "syllabus/",
+          label: "Syllabus",
+          position: "left",
         },
         {
-          href: 'https://github.com/csatuic/cs361-website/',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/csatuic/cs361-website/",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
+          items: [
+            { label: "Home", to: "/" },
+            { label: "Schedule", to: "/schedule" },
+            { label: "Syllabus", to: "/syllabus" },
+          ],
+        },
+        {
+          title: "Community",
           items: [
             {
-              label: 'Getting Started',
-              to: 'docs/',
+              label: "Discourse Q&A",
+              href: "https://example.com",
+            },
+            {
+              label: "Discord",
+              href: "https://example.com/invite/docusaurus",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "More",
           items: [
             {
-              label: 'Discourse Q&A',
-              href: 'https://example.com',
+              label: "Chris Kanich",
+              to: "https://www.cs.uic.edu/~ckanich/",
             },
             {
-              label: 'Discord',
-              href: 'https://example.com/invite/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Chris Kanich',
-              to: 'https://www.cs.uic.edu/~ckanich/',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/csatuic/',
+              label: "GitHub",
+              href: "https://github.com/csatuic/",
             },
           ],
         },
@@ -71,22 +72,28 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Chris Kanich. Built with Docusaurus.`,
     },
   },
-  presets: [
+  plugins: [
     [
-      '@docusaurus/preset-classic',
+      path.resolve(
+        __dirname,
+        "/workspaces/docusaurus/packages/docusaurus-plugin-content-docs"
+      ),
       {
-        docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.auto.js'),
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/kaytwo/cs361-website-next/edit/main/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        routeBasePath: "/",
+        sidebarPath: require.resolve("./sidebars.auto.js"),
+        // Please change this to your repo.
+        editUrl: "https://github.com/kaytwo/cs361-website-next/edit/main/",
+        includeFrontMatterInGlobals: true,
+      },
+    ],
+    "docusaurus-plugin-auto-sidebars",
+  ],
+  themes: [
+    [
+      "@docusaurus/theme-classic",
+      {
+        customCss: require.resolve("./src/css/custom.css"),
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-auto-sidebars']
 };

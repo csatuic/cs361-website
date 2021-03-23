@@ -8,7 +8,7 @@ date: 2021-03-15
 pairings: https://docs.google.com/spreadsheets/d/1Jiez1cWaoHvPZIMzO1Vcq5UbK2dGpbx7cwwU7q9Ufe0
 ---
 
-# {{page.description}}
+## Testing GC Code
 
 1.  We give you two programs to use to test the code you write in `hw4.c`, `hw4-library/main_debug.c` and `main.c`.
 
@@ -166,7 +166,7 @@ You will also need to edit the path for hw4.h in debug_main.c from `hw4.h` to `.
 
 ## Peer evaluation rubric
 
-You can find your pairings for the lab in [this sheet]({{page.pairings}}). Please grade your peers out of **1 point** using [this form]({{site.eval_link}}).
+<>You can find your pairings for the lab in <a href={frontMatter.pairings}>this sheet</a>. Please grade your peers out of **1 point** using this form.</>
 
 | Session | Task | Points |
 |---|---|---|

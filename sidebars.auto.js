@@ -1,8 +1,7 @@
 
 module.exports = {
   docs: [
-    "create-a-page",
-    "getting-started",
+    "homepage",
     {
         "type": "category",
         "label": "these are homeworks",
