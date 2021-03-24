@@ -4,7 +4,7 @@ module.exports = {
     "homepage",
     {
         "type": "category",
-        "label": "these are homeworks",
+        "label": "Homeworks",
         "items": [
             "homeworks/homework0",
             "homeworks/homework1",
@@ -15,7 +15,7 @@ module.exports = {
     },
     {
         "type": "category",
-        "label": "these are labs",
+        "label": "Labs",
         "items": [
             "labs/lab1",
             "labs/lab2",

@@ -4,14 +4,17 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "docusaurus-start": "docusaurus start",
+    "docusaurus-build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "write-frontmatters": "node frontmatters.js",
+    "build": "cross-env yarn write-frontmatters && yarn docusaurus-build",
+    "start": "cross-env yarn write-frontmatters && yarn docusaurus-start"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.72",
@@ -42,6 +45,9 @@
     "@types/react": "^17.0.3",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
+    "cross-env": "^7.0.3",
+    "globby": "^11.0.3",
+    "gray-matter": "^4.0.2",
     "typescript": "^4.2.3"
   }
 }
