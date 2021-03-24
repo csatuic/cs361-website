@@ -74,16 +74,12 @@ module.exports = {
   },
   plugins: [
     [
-      path.resolve(
-        __dirname,
-        "/workspaces/docusaurus/packages/docusaurus-plugin-content-docs"
-      ),
+      "@docusaurus/plugin-content-docs",
       {
         routeBasePath: "/",
         sidebarPath: require.resolve("./sidebars.auto.js"),
         // Please change this to your repo.
         editUrl: "https://github.com/kaytwo/cs361-website-next/edit/main/",
-        includeFrontMatterInGlobals: true,
       },
     ],
     "docusaurus-plugin-auto-sidebars",
