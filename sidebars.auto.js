@@ -32,7 +32,21 @@ module.exports = {
         "type": "category",
         "label": "lectures",
         "items": [
-            "lectures/lecture01"
+            "lectures/lecture01",
+            "lectures/lecture02",
+            "lectures/lecture03",
+            "lectures/lecture04",
+            "lectures/lecture05",
+            "lectures/lecture06",
+            "lectures/lecture07",
+            "lectures/lecture08",
+            "lectures/lecture09",
+            "lectures/lecture10",
+            "lectures/lecture11",
+            "lectures/lecture12",
+            "lectures/lecture13",
+            "lectures/lecture14",
+            "lectures/lecture15"
         ]
     },
     "schedule",

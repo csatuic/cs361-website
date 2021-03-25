@@ -12,7 +12,7 @@ contents:
       link: "https://youtu.be/LfiRKZze0HM"
     - name: "Scalability and the End to End Principle"
       link: "https://youtu.be/RJ_JV3Y-rhc"
-sidebar: false
+
 
 ---
 

@@ -8,7 +8,7 @@ contents:
       link: https://www.youtube.com/watch?v=QyYoj9pkwCs
     - name: the magic of the page fault
       link: https://www.youtube.com/watch?v=sGHYRr31BPE`
-sidebar: false
+
 
 ---
 

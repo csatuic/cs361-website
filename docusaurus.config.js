@@ -25,6 +25,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "schedule/",
+          label: "Schedule",
+          position: "left",
+        },
+        {
           href: "https://github.com/csatuic/cs361-website/",
           label: "GitHub",
           position: "right",
@@ -46,12 +51,8 @@ module.exports = {
           title: "Community",
           items: [
             {
-              label: "Discourse Q&A",
-              href: "https://example.com",
-            },
-            {
-              label: "Discord",
-              href: "https://example.com/invite/docusaurus",
+              label: "Piazza Q&A",
+              href: "https://piazza.com/class/kjs0fa9l97y53k",
             },
           ],
         },

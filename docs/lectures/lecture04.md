@@ -10,7 +10,7 @@ contents:
       link: https://www.youtube.com/watch?v=IdORic22vtQ
     - name: Processes
       link: https://www.youtube.com/watch?v=WkuKhLYtUHw
-sidebar: false
+
 ---
 
 If there is any **extended** web based info for the lecture, it can go here.

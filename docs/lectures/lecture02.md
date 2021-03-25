@@ -11,7 +11,7 @@ contents:
     - name: symbol relocation
       link: https://www.youtube.com/watch?v=E804eTETaQs
 notes: MLK day, no lab
-sidebar: false
+
 ---
 
 If there is any **extended** web based info for the lecture, it can go here.

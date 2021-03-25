@@ -8,7 +8,7 @@ contents:
       link: https://youtu.be/XXfdzwEsxFk
     - name: "The Basics of HTTP"
       link: https://youtu.be/zXqblbDLGf0
-sidebar: false
+
 
 ---
 
