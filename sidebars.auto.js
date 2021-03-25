@@ -28,6 +28,13 @@ module.exports = {
             "labs/lab9"
         ]
     },
+    {
+        "type": "category",
+        "label": "lectures",
+        "items": [
+            "lectures/lecture01"
+        ]
+    },
     "schedule",
     "syllabus"
 ]

@@ -7,7 +7,7 @@ const path = require("path");
   const paths = await globby(["docs/**/*.{md,mdx}", "!docs/schedule.mdx"]);
   const content = await Promise.all(paths.map((x) => readFile(x, "utf8")));
   await writeFile(
-    path.join(__dirname, "data/schedule.json"),
+    path.join(__dirname, "schedule.json"),
     JSON.stringify(content.map((c) => matter(c).data))
   );
 })();

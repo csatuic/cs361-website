@@ -1,7 +1,7 @@
 import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import data from '../../data/schedule.json'
+import data from '../../schedule.json'
 
 const Schedule = (props) => {
   const {siteConfig} = useDocusaurusContext();
