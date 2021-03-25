@@ -3,6 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import data from '../../schedule.json'
 const sections  = ['labs','lectures','homeworks']
 import ReactMarkdown from 'react-markdown'
+import Link from '@docusaurus/Link';
 
 
 
@@ -15,7 +16,8 @@ return <pre>{JSON.toString(props,null,2)}</pre>
 }
 
 const Content = (props) => {
-  return <></>
+  
+  return <>{props.element.section}</>
 }
 
 const Notes = (props) =>{
@@ -23,16 +25,16 @@ const Notes = (props) =>{
 }
 
 const EventTime = (props) =>{
-  return <></>
+  return <>{(new Date(props.date)).toLocaleString("en-us")}</>
 }
 
 const ScheduleRow = (props) => {
   return (<tr key={props.title}>
 <td>{props.section}</td>
-<td><EventTime props={props.date} /></td>
-<td><Description props={props.title}/></td>
-<td><Content props={props}/></td>
-<td><Notes props={props}/></td>
+<td><EventTime date={props.date} /></td>
+<td>{props.title}</td>
+<td><Content element={props}/></td>
+<td><Notes notes={props.notes}/></td>
   </tr>)
 }
 
@@ -49,10 +51,13 @@ const Schedule = (props) => {
     ...(x[1].due?.date && {end: new Date(Date.parse(x[1].due.date))} ) }
   })
   
-  return (<table><tbody>
+  return (<>
+  <Link to="lectures/lecture09">Lecture 09</Link>
+  <table><tbody>
     {output.map(x => ScheduleRow(x))}
     </tbody>
-  </table>)
+  </table>
+  </>)
 };
 
 export default Schedule
