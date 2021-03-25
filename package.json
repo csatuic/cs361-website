@@ -27,7 +27,8 @@
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-big-calendar": "^0.33.2",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.3"
   },
   "browserslist": {
     "production": [
