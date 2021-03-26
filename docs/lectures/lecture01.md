@@ -20,7 +20,9 @@ contents:
 sidebar: true
 notes: |
     [MIT's missing semester](https://missing.csail.mit.edu/) module
-    goes into these topics in a lot more detail.<br>For git specifically,
+    goes into these topics in a lot more detail.
+    
+    For git specifically,
     [Dangit, git](https://dangitgit.com/en) can be quite helpful. **There is no discussion quiz this week**.
 ---
 

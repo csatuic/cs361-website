@@ -8,7 +8,7 @@ contents:
       name: Why dynamically link?
     - name: Loading, using the GOT and PLT
       link: https://youtu.be/Ss2e6JauS0Y
-
+sidebar: false
 ---
 
 If there is any **extended** web based info for the lecture, it can go here.

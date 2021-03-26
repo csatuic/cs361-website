@@ -8,7 +8,7 @@ contents:
       link: https://jvns.ca/strace-zine-v3.pdf
     - name: fork/exec/posix_spawn/clone
       link: https://www.youtube.com/watch?v=uRYyj8tcDTE
-
+sidebar: false
 
 ---
 

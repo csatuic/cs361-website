@@ -8,7 +8,7 @@ contents:
       link: https://www.youtube.com/watch?v=ccWRlNP1UsY
     - name: multi level page tables
       link: https://www.youtube.com/watch?v=hd8bYx7QCS0
-
+sidebar: false
 
 ---
 

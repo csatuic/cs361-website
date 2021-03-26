@@ -6,7 +6,7 @@ contents:
     - "Book: 9.7-9.8"
     - name: "mmap"
       link: "https://www.youtube.com/watch?v=8hVLcyBkSXY"
-
+sidebar: false
 
 ---
 

@@ -10,7 +10,7 @@ contents:
       link: "https://www.youtube.com/watch?v=UTii4dyhR5c"
     - name: "how the book malloc works"
       link: "https://www.youtube.com/watch?v=EhmZvyNA-1A"
-
+sidebar: false
 
 ---
 

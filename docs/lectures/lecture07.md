@@ -10,7 +10,7 @@ contents:
       link: https://www.youtube.com/watch?v=ayMPFUGE_b4
     - name: file descriptor tables, `dup2`
       link: https://www.youtube.com/watch?v=rW_NV6rf0rM
-
+sidebar: false
 
 ---
 

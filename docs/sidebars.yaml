@@ -2,3 +2,5 @@
   - Homeworks # First element is the title of parent, next elements are sub directories
 - labs: 
   - Labs
+- lectures:
+  - Lectures

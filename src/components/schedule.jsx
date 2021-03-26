@@ -1,63 +1,109 @@
-import React from 'react'
+import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import data from '../../schedule.json'
-const sections  = ['labs','lectures','homeworks']
-import ReactMarkdown from 'react-markdown'
+import data from '../../schedule.json';
+const sections = ['labs', 'lectures', 'homeworks'];
+import ReactMarkdown from 'react-markdown';
 import Link from '@docusaurus/Link';
 
-
+const getPath = (filename) =>
+  filename.slice(filename.indexOf('/') + 1, filename.lastIndexOf('.'));
 
 const getSection = (element) => {
-  return element?.[0].split('/')?.[1]
-}
+  return element?.[0].split('/')?.[1];
+};
 
 const Description = (props) => {
-return <pre>{JSON.toString(props,null,2)}</pre>
-}
+  if (props.render || props.section !== 'lectures')
+    return <Link to={`/${props.file}`}>{props.name}</Link>;
+  else return <></>;
+};
 
 const Content = (props) => {
-  
-  return <>{props.element.section}</>
-}
+  return (
+    <ul>
+      {props.element?.contents?.map((elt) =>
+        typeof elt === 'string' ? (
+          <li key={elt}>{elt}</li>
+        ) : (
+          <li key={elt.name} >
+            <Link to={elt.link}>{elt.name}</Link>
+          </li>
+        ),
+      )}
+    </ul>
+  );
+};
 
-const Notes = (props) =>{
-  return <ReactMarkdown>{props.notes}</ReactMarkdown>
-}
+const Notes = (props) => {
+  if (props.released)
+    return (
+      <>Released on {new Date(props.released).toLocaleDateString('en-us')}</>
+    );
+  else if (props.notes) return <ReactMarkdown>{props.notes}</ReactMarkdown>;
+  return null;
+};
 
-const EventTime = (props) =>{
-  return <>{(new Date(props.date)).toLocaleString("en-us")}</>
-}
+const EventTime = (props) => {
+  return <>{new Date(props.date).toLocaleDateString('en-us')}</>;
+};
 
 const ScheduleRow = (props) => {
-  return (<tr key={props.title}>
-<td>{props.section}</td>
-<td><EventTime date={props.date} /></td>
-<td>{props.title}</td>
-<td><Content element={props}/></td>
-<td><Notes notes={props.notes}/></td>
-  </tr>)
-}
+  return (
+    <tr key={props.title}>
+      <td>{props.section}</td>
+      <td>
+        <EventTime date={props.date} />
+      </td>
+      <td>
+        <Description
+          section={props.section}
+          render={props.sidebar}
+          name={props.title}
+          file={getPath(props.filename)}
+        />
+      </td>
+      <td>
+        <Content element={props} />
+      </td>
+      <td>
+        <Notes released={props.released} notes={props.notes} />
+      </td>
+    </tr>
+  );
+};
 
 const Schedule = (props) => {
   const {siteConfig} = useDocusaurusContext();
-  const dueDates = []
-  const output = data.filter(x => 
-    sections.indexOf(getSection(x)) >= 0
-  ).map(x => {
-    const thisDate = new Date(Date.parse(x[1].date))
-    const transformed =  {title: x[1].title, date: new Date(x[1].date), section:getSection(x),
-    }
-    return {...x[1], title: x[1].title, start: new Date(Date.parse(x[1].date)), section:getSection(x),
-    ...(x[1].due?.date && {end: new Date(Date.parse(x[1].due.date))} ) }
-  })
-  
-  return (<>
-  <Link to="lectures/lecture09">Lecture 09</Link>
-  <table><tbody>
-    {output.map(x => ScheduleRow(x))}
-    </tbody>
-  </table>
-  </>)
+  const dueDates = [];
+  const output = data
+    .filter((x) => sections.indexOf(getSection(x)) >= 0)
+    .sort((x,y) => new Date(x[1].date) - new Date(y[1].date) )
+    .map((x) => {
+      return {
+        ...x[1],
+        filename: x[0],
+        section: getSection(x),
+        date: x[1].due?.date ? x[1].due.date : x[1].date,
+        ...(x[1].due?.date && {released: x[1].date}),
+      };
+    });
+
+  return (
+    <>
+      <table>
+        <thead>
+          <tr>
+            <td>Type</td>
+            <td>Date</td>
+            <td>Link</td>
+            <td>Content</td>
+            <td>Notes</td>
+          </tr>
+        </thead>
+        <tbody>{output.map((x) => ScheduleRow(x))}</tbody>
+      </table>
+    </>
+  );
 };
 
-export default Schedule
+export default Schedule;

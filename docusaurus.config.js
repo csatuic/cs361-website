@@ -83,6 +83,12 @@ module.exports = {
         editUrl: "https://github.com/kaytwo/cs361-website-next/edit/main/",
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        fromExtensions: ['html'],
+      },
+    ],
     "docusaurus-plugin-auto-sidebars",
   ],
   themes: [
