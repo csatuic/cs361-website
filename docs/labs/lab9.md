@@ -7,6 +7,8 @@ date: 2021-03-15
 # notes gets passed through markdownify
 pairings: https://docs.google.com/spreadsheets/d/1Jiez1cWaoHvPZIMzO1Vcq5UbK2dGpbx7cwwU7q9Ufe0
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
 ## Testing GC Code
 
@@ -166,7 +168,11 @@ You will also need to edit the path for hw4.h in debug_main.c from `hw4.h` to `.
 
 ## Peer evaluation rubric
 
-<>You can find your pairings for the lab in <a href={frontMatter.pairings}>this sheet</a>. Please grade your peers out of **1 point** using this form.</>
+
+<> You can find your pairings for the lab in <Link to={frontMatter.pairings}>this sheet</Link>.</>
+
+<>Please grade your peers out of one point via <Link to={site.eval_link}>this link</Link></>.
+
 
 | Session | Task | Points |
 |---|---|---|
@@ -183,7 +189,6 @@ You will also need to edit the path for hw4.h in debug_main.c from `hw4.h` to `.
 | Discuss your answers | 1 point |
 | Evaluate another student | 1 point |
 | Total points | 7 points |
-{: class="table table-striped"}
 
 ## Functions You Will Write
 

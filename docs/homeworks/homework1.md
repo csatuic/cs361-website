@@ -14,8 +14,10 @@ date: 2021-01-15
 github_link: https://classroom.github.com/a/JducbSC2
 # skeleton_repo: 'csatuic/cs361-hw1-skeleton'
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-# Homework 1: The ELF format
+## The ELF format
 
 This homework is meant to get you familiarized with the concept of
 symbols and how they relate to compiling and linking executables.
@@ -25,10 +27,10 @@ with it, this assignment is a second chance to get up to speed. Remember: git
 gives you warnings and errors _for good reason_, if it complains at the command
 line when you run a command, don't just assume it's completed correctly!
 
-The skeleton code for this assignment is available at [this
-link]({{page.github_link}}). You must use GitHub classroom to
+
+<>The skeleton code for this assignment is available through <Link to={frontMatter.github_link}>this GitHub Classroom assignment</Link>. You must use GitHub classroom to
 write your code and keep a commit log on GitHub. You can submit the code via
-[Gradescope]({{site.gradescope}}).
+Gradescope.</>
 
 Now that you have the skeleton code, you can start coding. You should commit
 early and often, and push to your remote repository whenever is convenient to
@@ -88,7 +90,6 @@ Running `readelf -sW hw1.o` on the solution results in:
  | 23: | 000000000000005a | 44 | FUNC | GLOBAL | DEFAULT | 1 | main | 
  | 24: | 0000000000000000 | 0 | NOTYPE | GLOBAL | DEFAULT | UND | _GLOBAL_OFFSET_TABLE_ | 
  | 25: | 0000000000000000 | 0 | **NOTYPE** | **GLOBAL** | DEFAULT | **UND** | **puts** | 
-{: class="table table-striped well texttt"}
 
 As a further hint, here's the mapping between the Section Index and the
 Section Names:
@@ -138,11 +139,11 @@ you have issues with the autograder, please contact us via Piazza ASAP.
 excuse for submitting the assignment improperly or late.**
 
 ## Due Date
-This assignment is due {{ page.due.date | date: "%s" | date: site.datetimeformat
-}}. See the [syllabus](syllabus.html) for the late turnin policy. This
+
+<>This assignment is due {new Date(frontMatter.due.date).toLocaleString('en-us')} in time zone {Intl.DateTimeFormat().resolvedOptions().timeZone}. See the <Link to="/syllabus">syllabus</Link> for the late turnin policy. This
 assignment is worth just as much as every other homework, but is easier than all
 the rest (in our opinion) so getting as much credit on it as possible is
-important!
+important!</>
 
 ## Helpful Documents
 

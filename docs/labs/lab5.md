@@ -8,8 +8,10 @@ date: 2021-02-15T17:00:00
 github_link: https://classroom.github.com/a/2CQ1rgoo 
 pairings: https://docs.google.com/spreadsheets/d/1sTUIwLdSZiBNUb7ldzmI-M3XUB5oLW8wDNf0czptuBo
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-# Lab 5: {{page.description}}
+# Lab 5: Intro to shells
 
 In this lab, we will be writing a shell program.  A shell is the program that all of you use when
 you ssh to a linux machine, or hit ``ctrl+` `` to open a terminal in vscode. It's the program which
@@ -27,7 +29,9 @@ loop for our (and any) shell, will be:
 
 ## The high level structure of a shell
 
-To start this week's lab, [accept Homework 3]({{page.github_link }}) via GitHub. This skeleton code
+To start this week's lab, <Link to={frontMatter.github_link}>accept Homework 3</Link> via GitHub.
+
+This skeleton code
 is a slightly modified version of the basic shell that is presented in the book in Chapter 8. In
 homework 3, we will be using `spawn` (instead of `fork`), to run simple commands and then we will be 
 adding the ability to handle signals (the topic of this week's lecture) and file redirection (the
@@ -66,7 +70,7 @@ For the first half of the lab, you will be working on your own to understand `sp
 complete the `exec_cmd` function so that your shell can run simple commands (e.g., `ls`) 
 correctly. For the second half, you will be working with your peers and performing the evaluation.
 
-You can find your pairings for the lab in [this sheet]({{page.pairings}}).
+<> You can find your pairings for the lab in <Link to={frontMatter.pairings}>this sheet</Link>.</>
 
 ## Sample Input
 * ```/bin/echo hello world```
@@ -82,8 +86,7 @@ The peer explanations for this lab are:
 | Session B | Show your evaluator what you did to add `posix_spawnp` to run a child process. | 1 point |
 {: class="table table-striped"}
 
-Please grade your peers out of **1 point** using [this form]({{site.eval_link}}).
-
+<>Please grade your peers out of 1 points via <Link to={site.eval_link}>this link</Link></>.
 
 # Getting started on Homework 3
 

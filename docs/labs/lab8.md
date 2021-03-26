@@ -7,9 +7,10 @@ date: 2021-03-08
 # notes gets passed through markdownify
 pairings: https://docs.google.com/spreadsheets/d/1zn-sVGFd9V-QlGnFraB1SA1GT5YPNzUN7NGiCxKu1b4
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-
-# {{page.description}}
+## Garbage Collection
 
 1.  In this lab, we will be building a garbage collector for malloc. As usual, you should start by going to Gradescope and skimming the questions. Also, this lab will be walking through fundamental parts of the homework, so please (if you haven’t already) go to the course page, accept the hw4 assignment, and get the skeleton code. At the end of the lab, you will discuss your answers with your peers.
 
@@ -160,13 +161,14 @@ The P (PREV_INUSE) bit, stored in the unused low-order bit of the
 
 ## Peer evaluation rubric
 
-You can find your pairings for the lab in [this sheet]({{page.pairings}}). Please grade your peers out of **1 point** using [this form]({{site.eval_link}}).
+<> You can find your pairings for the lab in <Link to={frontMatter.pairings}>this sheet</Link>.</>
+
+<>Please grade your peers out of one point via <Link to={site.eval_link}>this link</Link></>.
 
 | Session | Task | Points |
 |---|---|---|
 | Session A | Discuss questions 1, 2, and 3 | 1 point |
 | Session B | Discuss questions 4, and 5 | 1 point |
-{: class="table table-striped"}
 
 
 ## Total grade calculation
@@ -177,7 +179,6 @@ You can find your pairings for the lab in [this sheet]({{page.pairings}}). Pleas
 | Discuss your answers | 1 point |
 | Evaluate another student | 1 point |
 | Total points | 8 points |
-{: class="table table-striped"}
 
 # Getting started on Homework 4
 

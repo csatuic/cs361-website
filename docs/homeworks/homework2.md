@@ -8,8 +8,10 @@ due:
     github_link: https://classroom.github.com/a/S_KKbtOw
 date: 2021-01-25
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-### {{ page.title }}: Inspecting Running Processes
+## Inspecting Running Processes
 
 
 
@@ -24,23 +26,25 @@ Before you start, please make sure to set up your environment correctly. You hav
 
 In either case, when you run `whoami` command in the terminal, it should return your UIC NetID. Please note that if the result is different than your NetID, your secrets will not be accepted by the autograder. 
 
-The skeleton code for this assignment is available at [this link]({{page.github_link}}). You must use GitHub classroom to write your code and keep a commit log on GitHub. You will submit your files via [Gradescope]({{site.gradescope}}).
+<>The skeleton code for this assignment is available through <Link to={frontMatter.github_link}>this GitHub Classroom assignment</Link>. You must use GitHub classroom to
+write your code and keep a commit log on GitHub. You can submit the code via
+Gradescope.</>
 
 Your task will be to fill out two files in your personal repository called `secrets.txt` and `howto.txt`. 
 
 The format for `secrets.txt` should be:
 
-{% highlight text %}
+```
 0. these  
 1. are  
 2. not  
 3. real  
 4. secrets  
-{% endhighlight %}
+```
 
 `howto.txt` is also **required**: you must describe in English how to find the secret for that given executable. Each individual howto should be on one more more lines after a line with only the executable number and a period on it, like so:
 
-{% highlight text %}
+```
 0.  
 This was the really easy one. You had to run it and then type in the secret of life.  
 1.  
@@ -48,7 +52,7 @@ For this one, I had to:
 * Run a specific unix utility to learn some specific information  
 * Perform some specific task that I found out about by checking part of a specific line in the output of the unix utility.  
 ...
-{% endhighlight %}
+```
 
 Your `howto.txt` should enable any other CS 361 student to find the password within a minute of reading it.
 
@@ -77,4 +81,7 @@ Both `secrets.txt` and `howto.txt` **must be submitted to Gradescope via GitHub*
 The first 4 are each worth 1 point each, the final one is worth 4 points. An additional 2 points will be given for each correct howto.
 
 ### Due Date
-This assignment is due {{ page.due.date | date_to_rfc822 }}. See the [syllabus](syllabus.html) for the late turn-in policy. This assignment is worth just as much as every other homework, so getting as much credit on it as possible is important (don't turn it in late!).
+
+<>
+This assignment is due at {new Date(frontMatter.due.date).toLocaleString('en-us')} in time zone {Intl.DateTimeFormat().resolvedOptions().timeZone}. See the <Link to="/syllabus">syllabus</Link> for the late turn-in policy. This assignment is worth just as much as every other homework, so getting as much credit on it as possible is important (don't turn it in late!).
+</>
