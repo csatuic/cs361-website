@@ -9,14 +9,21 @@ github_link: https://classroom.github.com/a/-Br3s7dU
 # skeleton_repo: csatuic/cs361-lab4-skeleton
 pairings: https://docs.google.com/spreadsheets/d/1UzNHmKtnI5PjRSwy5UTWnm3Ys15FnLZ9LV19HhO49fk
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-# Lab 3: {{page.description}}
+
+
+## Lab 3: Program Debugging
+
+<>
 In this lab, you will explore some debugging tools which are helpful when trying to debug a fully compiled executable. 
-The lab has two deliverables. First, you need to work on your own and complete the Lab 3 assignment on [Gradescope]({{site.gradescope}}). Second, you would do a recap of the activities with your partner. You can find your pairings for the lab in [this sheet]({{page.pairings}}).
+The lab has two deliverables. First, you need to work on your own and complete the Lab 3 assignment on Gradescope. Second, you would do a recap of the activities with your partner. You can find your pairings for the lab in <Link to={frontMatter.pairings}>this sheet</Link>.
+</>
 
 ## gdb
 
-1.  Before we begin, log in to `systems[1-4].cs.uic.edu` or your docker devcontainer, and accept the assignment at [this github classroom link]({{page.github_link}}) which contains the practice code for this lab session. For this practice session, we are giving you the source code for the files you will be practicing on - in the homework, you will get only the binaries.
+1.  Before we begin, log in to `systems[1-4].cs.uic.edu` or your docker devcontainer, and accept the assignment at [this github classroom link](https://classroom.github.com/a/-Br3s7dU) which contains the practice code for this lab session. For this practice session, we are giving you the source code for the files you will be practicing on - in the homework, you will get only the binaries.
 
 2.  Run make to compile the code.
 
@@ -42,7 +49,6 @@ The lab has two deliverables. First, you need to work on your own and complete t
 
 5.  Use the above commands to answer the questions about gdb on
     gradescope.
-<!-- <br/><br/> -->
 
 ## strace
 
@@ -62,8 +68,8 @@ The lab has two deliverables. First, you need to work on your own and complete t
     system", 24) = 24")` being interrupted by our program printing.
 
 4.  This line tells us that the system call `write` was called (as a
-    result of our printf call) on the parameters `1, "operating system",
-    24`, and had the return value of 24.
+    result of our printf call) on the parameters `1, "operating system", 24`,
+    and had the return value of 24.
 
 5.  Some helpful strace options to play around with:
 
@@ -94,17 +100,16 @@ The lab has two deliverables. First, you need to work on your own and complete t
 
 5.  Answer the questions about ltrace on gradescope.
 
-<!-- 6.  You should now be able to find the secret codes for binaries 0-3 in homework 2. We will go over what you need for binary 4 next week. -->
 
 ## Peer evaluation rubric
 
-Please grade your peers out of **3 points** using [this form]({{site.eval_link}}).
+
+<>Please grade your peers out of 3 points using <Link to={site.eval_link}>this form</Link></>.
 
 | Session | Task | Points |
 |---|---|---|
 | Session A | Walk through the steps of getting answers for question 1, 2 & 3 | 3 points (1 point for each question) |
 | Session B | Walk through the steps of getting answers for question 4, 5 & 6 | 3 points (1 point for each question) |
-{: class="table table-striped"}
 
 ## Total grade calculation
 
@@ -114,7 +119,6 @@ Please grade your peers out of **3 points** using [this form]({{site.eval_link}}
 | Demonstrate your approach to finding the answers | 3 points |
 | Evaluating another student | 3 points |
 | Total points | 9 points |
-{: class="table table-striped"}
 
 ## Timing 
 

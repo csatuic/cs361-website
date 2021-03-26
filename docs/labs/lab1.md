@@ -10,9 +10,9 @@ date: 2021-01-11T17:00:00-6:00
 
 # Lab 1: Welcome/intro
 
-This lab is an easy one. At some point before 5pm on {{page.date | date: "%s" | date: site.datetimeformat }} (HINT: the order of these tasks is important, reading all of the text shown to you is important):
+This lab is an easy one. At some point before 5pm on the day of the lab (HINT: the order of these tasks is important, reading all of the text shown to you is important):
 
-1. Read the [syllabus](syllabus.html), and if you have any questions, ask on [Piazza]({{ site.discussion}}).
+1. Read the [syllabus](syllabus.html), and if you have any questions, ask on Piazza.
 1. Take [the pre-class survey](https://forms.gle/7G7MkJUAdRJjSXR36)
 2. Respond to this
    [flipgrid](https://flipgrid.com/bef8b6e3)

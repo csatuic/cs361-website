@@ -7,13 +7,17 @@ date: 2021-02-08T17:00:00
 github_link: https://classroom.github.com/a/PGPE9s17  
 pairings: https://docs.google.com/spreadsheets/d/1sEpTvzcamS-VkBauhNrEil24HiMjEASGPu04e5mG9pA/ 
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
-# Lab 4: {{page.description}}
-In this lab, you will learn how to create and use dynamic libraries which helps you solve part 4 of homework 2. In the first half of the lab, you will be working on Lab 5's assignment on [Gradescope]({{site.gradescope}}). For the second half, you will do a recap of the activities with your partner. You can find your pairings for the lab in [this sheet]({{page.pairings}}). 
+# Lab 4: Dynamic Libraries
+In this lab, you will learn how to create and use dynamic libraries which helps you solve part 4 of homework 2. In the first half of the lab, you will be working on Lab 5's assignment on Gradescope. For the second half, you will do a recap of the activities with your partner.
+
+<> You can find your pairings for the lab in <Link to={frontMatter.pairings}>this sheet</Link>.</>
 
 ## Setting up your environment
 
-1. Before we begin, accept the assignment at [this github classroom link]({{page.github_link}}). The github repository contains the practice code for this lab session. Check out the repository after logging in to systems[1-4].cs.uic.edu or clone the repository and open your workspace in the development container. 
+1. Before we begin, accept the assignment at [this github classroom link](https://classroom.github.com/a/PGPE9s17). The github repository contains the practice code for this lab session. Check out the repository after logging in to systems[1-4].cs.uic.edu or clone the repository and open your workspace in the development container. 
 2. Run `make` to create the compiled binary executable `uselib`. Try running it with `./uselib`. You should get an error that says "./uselib: error while loading shared libraries: libsess3.so: cannot open shared object file: No such file or directory".
 3. This error is telling you that your runtime environment cannot find the shared library `libsess3.so` that the `uselib` executable depends on. In order to tell it where to look for this library, you will need to set the `LD_LIBRARY_PATH` environment variable. To do this, run the command `export LD_LIBRARY_PATH=<your current directory>:$LD_LIBRARY_PATH` with `<your current directory>` changed appropriately. You can use `PWD` environment variable which points to the current directory: `export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH`
 4. If you rerun `./uselib` it should now run.
@@ -44,13 +48,12 @@ In this lab, you will learn how to create and use dynamic libraries which helps 
 
 ## Peer evaluation rubric
 
-Please grade your peers out of **2 points** using [this form]({{site.eval_link}}).
+<>Please grade your peers out of 2 points  via <Link to={site.eval_link}>this link</Link></>.
 
 | Session | Task | Points |
 |---|---|---|
 | Session A | Walk through the steps of section (A) and getting answers for question 2 & 3 | 2 points (1 point per question) |
 | Session B | Walk through the steps of section (B) and getting answers for question 4 & 5 | 2 points (1 point per question) |
-{: class="table table-striped"}
 
 ## Total grade calculation
 
@@ -60,7 +63,6 @@ Please grade your peers out of **2 points** using [this form]({{site.eval_link}}
 | Demonstrate your approach for finding the answers | 2 points |
 | Evaluate another student | 2 points |
 | Total points | 7 points |
-{: class="table table-striped"}
 
 ## Timing 
 

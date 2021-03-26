@@ -4,6 +4,9 @@ import data from '../../schedule.json';
 const sections = ['labs', 'lectures', 'homeworks'];
 import ReactMarkdown from 'react-markdown';
 import Link from '@docusaurus/Link';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+
 
 const getPath = (filename) =>
   filename.slice(filename.indexOf('/') + 1, filename.lastIndexOf('.'));
@@ -40,7 +43,7 @@ const Notes = (props) => {
       <>Released on {new Date(props.released).toLocaleDateString('en-us')}</>
     );
   else if (props.notes) return <ReactMarkdown>{props.notes}</ReactMarkdown>;
-  return null;
+    return <>{` `}</>;
 };
 
 const EventTime = (props) => {
@@ -49,26 +52,26 @@ const EventTime = (props) => {
 
 const ScheduleRow = (props) => {
   return (
-    <tr key={props.title}>
-      <td>{props.section}</td>
-      <td>
+    <Tr key={props.title}>
+      <Td>{props.section}</Td>
+      <Td>
         <EventTime date={props.date} />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <Description
           section={props.section}
           render={props.sidebar}
           name={props.title}
           file={getPath(props.filename)}
         />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <Content element={props} />
-      </td>
-      <td>
+      </Td>
+      <Td>
         <Notes released={props.released} notes={props.notes} />
-      </td>
-    </tr>
+      </Td>
+    </Tr>
   );
 };
 
@@ -90,18 +93,18 @@ const Schedule = (props) => {
 
   return (
     <>
-      <table>
-        <thead>
-          <tr>
-            <td>Type</td>
-            <td>Date</td>
-            <td>Link</td>
-            <td>Content</td>
-            <td>Notes</td>
-          </tr>
-        </thead>
-        <tbody>{output.map((x) => ScheduleRow(x))}</tbody>
-      </table>
+      <Table>
+        <Thead>
+          <Tr>
+            <Td>Type</Td>
+            <Td>Date</Td>
+            <Td>Link</Td>
+            <Td>Content</Td>
+            <Td>Notes</Td>
+          </Tr>
+        </Thead>
+        <Tbody>{output.map((x) => ScheduleRow(x))}</Tbody>
+      </Table>
     </>
   );
 };

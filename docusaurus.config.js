@@ -9,6 +9,8 @@ module.exports = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",
+  customFields: {
+    arbitrary: "configuration",},
   organizationName: "csatuic", // Usually your GitHub org/user name.
   projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
@@ -48,12 +50,16 @@ module.exports = {
           ],
         },
         {
-          title: "Community",
+          title: "Other tools",
           items: [
             {
               label: "Piazza Q&A",
               href: "https://piazza.com/class/kjs0fa9l97y53k",
             },
+            {
+              label: "Gradescope",
+              href: "https://www.gradescope.com/courses/225629",
+            }
           ],
         },
         {
