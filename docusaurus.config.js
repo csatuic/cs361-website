@@ -5,7 +5,7 @@ module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
   url: "https://www.cs.uic.edu/~ckanich/cs361/next/",
-  baseUrl: "/",
+  baseUrl: "/~ckanich/cs361/next/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",

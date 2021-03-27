@@ -8,10 +8,12 @@ due:
 date: 2021-02-15
 github_link: https://classroom.github.com/a/2CQ1rgoo 
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
 ### Homework 3: Write your own shell
 
-[Assignment checkout]({{page.github_link}})
+<> <Link to={frontMatter.github_link}>Assignment checkout</Link>.</>
 
 #### Background
 
@@ -122,5 +124,9 @@ autograder early on during the assignment: learning how to test your own code is
 of this assignment.
 
 ### Due Date
-This assignment is due {{ page.due.date | date: "%s" | date: site.datetimeformat }}. See the [syllabus](syllabus.html) for the late turn-in policy. This assignment is worth just as much as every other homework, so getting as much credit on it as possible is important (don't turn it in late!).
+
+
+<>This assignment is due {new Date(frontMatter.due.date).toLocaleString('en-us')} in time zone {Intl.DateTimeFormat().resolvedOptions().timeZone}.</>
+
+See the [syllabus](/syllabus) for the late turn-in policy. This assignment is worth just as much as every other homework, so getting as much credit on it as possible is important (don't turn it in late!).
 

@@ -2,19 +2,21 @@
 title: Systems Programming
 slug: /
 ---
+import Link from '@docusaurus/Link';
+import site from '@site/course.json'
 
 ![Semaphores in Videogames](../static/img/factorio-semaphore.gif)
 
 # Basics
 **Lab Section**: Mondays (see your schedule for specific time)    
-**Course Location**: Our "classroom" is currently in flux. The current contenders are Zoom and Acadly.      
+**Course Location**: Small discussions happen on the class Zoom, while the main video feed is broadcast via YouTube Live.      
 **Professor Office Hours**: 3:30 - 4:45 pm Tuesdays via [Zoom](https://uic.zoom.us/my/ckanich)    
 **Class**: 3:30 - 4:45 pm Thursdays via (videoconferencing system tbd)   
 **Instructor**: [Chris Kanich][ckanich]   
 **Office**: [Zoom](https://uic.zoom.us/my/ckanich) but I'm also available on MS Teams and discord      
 **Book**: Computer Systems, a programmer's perspective, by Randal E. Bryant and David R. O'Hallaron. Reading assignments will follow the 3rd edition.    
 
-**Discussion**: [Piazza][piazza]
+<>Discussion: <Link to={site.discussion}>Piazza</Link></>
 
 **Graduate TAs**: Rohan Vardekar, Shubham Singh, Mohammad Ghasemisharif   
 **Office**: Check the TA calendar below for times and videoconferencing systems    
