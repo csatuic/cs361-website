@@ -75,4 +75,4 @@ The completed assignment should be turned in via Gradescope as with other homewo
 
 ## Due Date
 
-<>This assignment is due {new Date(frontMatter.due.date).toLocaleString('en-us')} in time zone {Intl.DateTimeFormat().resolvedOptions().timeZone}. See the <Link to="/syllabus">syllabus</Link> for the late turnin policy.</>
+<>This assignment is due {new Date(frontMatter.due.date).toLocaleString('en-us')} in the {Intl.DateTimeFormat().resolvedOptions().timeZone} time zone. See the <Link to="/syllabus">syllabus</Link> for the late turnin policy.</>

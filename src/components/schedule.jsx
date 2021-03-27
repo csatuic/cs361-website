@@ -1,7 +1,7 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import data from '../../schedule.json';
-const sections = ['labs', 'lectures', 'homeworks'];
+const sections = ['labs', 'lectures', 'homeworks', 'exams'];
 import ReactMarkdown from 'react-markdown';
 import Link from '@docusaurus/Link';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
@@ -16,7 +16,7 @@ const getSection = (element) => {
 };
 
 const Description = (props) => {
-  if (props.render || props.section !== 'lectures')
+  if (props.render || (props.section !== 'lectures' && props.section !== 'exams'))
     return <Link to={`/${props.file}`}>{props.name}</Link>;
   else return <></>;
 };

@@ -1,6 +1,6 @@
 - homeworks: 
-  - Homeworks # First element is the title of parent, next elements are sub directories
+  - Homeworks: 4 # First element is the title of parent, next elements are sub directories
 - labs: 
-  - Labs
+  - Labs: 5
 - lectures:
-  - Lectures
+  - Lectures: 6

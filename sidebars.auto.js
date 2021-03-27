@@ -1,7 +1,14 @@
 
 module.exports = {
   docs: [
-    "homepage",
+    {
+        "type": "category",
+        "label": "exams",
+        "items": []
+    },
+    "1.homepage",
+    "2.schedule",
+    "3.syllabus",
     {
         "type": "category",
         "label": "Homeworks",
@@ -10,7 +17,8 @@ module.exports = {
             "homeworks/homework1",
             "homeworks/homework2",
             "homeworks/homework3",
-            "homeworks/homework4"
+            "homeworks/homework4",
+            "homeworks/homework5"
         ]
     },
     {
@@ -18,6 +26,7 @@ module.exports = {
         "label": "Labs",
         "items": [
             "labs/lab1",
+            "labs/lab10",
             "labs/lab2",
             "labs/lab3",
             "labs/lab4",
@@ -34,8 +43,6 @@ module.exports = {
         "items": [
             "lectures/lecture01"
         ]
-    },
-    "schedule",
-    "syllabus"
+    }
 ]
 };
