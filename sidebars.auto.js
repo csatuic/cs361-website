@@ -25,16 +25,16 @@ module.exports = {
         "type": "category",
         "label": "Labs",
         "items": [
-            "labs/lab1",
-            "labs/lab10",
-            "labs/lab2",
-            "labs/lab3",
-            "labs/lab4",
-            "labs/lab5",
-            "labs/lab6",
-            "labs/lab7",
-            "labs/lab8",
-            "labs/lab9"
+            "labs/lab01",
+            "labs/lab02",
+            "labs/lab03",
+            "labs/lab04",
+            "labs/lab05",
+            "labs/lab06",
+            "labs/lab07",
+            "labs/lab08",
+            "labs/lab09",
+            "labs/lab10"
         ]
     },
     {

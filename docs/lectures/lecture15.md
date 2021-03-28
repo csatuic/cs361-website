@@ -1,9 +1,9 @@
 ---
 type: lecture
 date: 2021-04-26T8:00:00-5:00
-title: Semaphores
+title: Races and Deadlocks
 contents:
-    - "Book: 12.4-12.5"
+    - "Book: 12.7"
 sidebar: false
 
 ---

@@ -1,13 +1,9 @@
 ---
 type: lecture
 date: 2021-04-12T8:00:00-5:00
-title: Sockets, Connections, HTTP
+title: Concurrency concepts
 contents:
-    - "Book: 11.4 - 11.5"
-    - name: "The Socket API"
-      link: https://youtu.be/XXfdzwEsxFk
-    - name: "The Basics of HTTP"
-      link: https://youtu.be/zXqblbDLGf0
+    - "Book: 12.0-12.3"
 sidebar: false
 
 ---

@@ -6,7 +6,7 @@ due:
     date: 2021-04-16T16:59:00-6:00
     description: 'Assignment #5 due'
 date: 2021-03-29
-github_link: https://example.com
+github_link: https://classroom.github.com/a/aoUUUzUS
 student_ports_link: https://docs.google.com/spreadsheets/d/1zJNLivFtDW8lBjbmy0M1kJudbokOaxG_HqbsOIjSstM/edit#gid=0
 video: https://www.youtube.com/watch?v=qIjd5xOlF5Q
 ---
@@ -66,10 +66,10 @@ send a message.
 
 The skeleton code for this assignment is based off of the event-driven,
 single-threaded echo server in the book. All of the code for receiving multiple
-connections is still in there. The one TODO in the code happens when a new
+connections is still in there. The TODOs for this assignment happen when a new
 message comes in on an individual socket: you need to decide on what to do next
 in order to move the protocol forward. Each time that bytes are received, they
-are accumulated into `requestbuf` for that specific client.
+should be accumulated into `requestbuf` for that specific client.
 
 ## My suggested strategy
 
@@ -95,7 +95,8 @@ This assignment is worth **10 points** in total.
 
 Grading will be done automatically using a script. We will publish this script
 after grading has completed; you are responsible for writing your own test
-cases. If you wish, you can share test cases you have written with the class.
+cases. **Publicly sharing valid testing scripts with other students will earn
+extra credit in the course**.
 
 
 ## How to run your program

@@ -1,0 +1,24 @@
+name: Publish course website
+
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  jekyll:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: webfactory/ssh-agent@v0.4.1
+      with:
+        # this key is restricted to only rsync to the course website directory
+        ssh-private-key: ${{ secrets.SSH_KEY }}
+    - run: echo -e "|1|2XhH6IiSRzcpXmmi1xd0MW0Stnw=|DKnzppUong6ZGaZJFO10Ov+LSfI= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAvmSM9cFyLTwaAQjf0j0bHZgsm7pBK/MJyLaaw04+RhW3F8MhvrVK+Zwb1V3q8R2R9s7OM6fkftje+6NbuNbuWqiqeScRamA+vVR2aTrUE7KqIsX2UL0QvVTBJQLEvH/BfyWgDjLx+J2biKXHcYQcoVaRRPkHC8ugKg0bGUHWdp+Bx9Bl0N2crZSUvz7kGm7+PrrXHe41eX8ZyUaxWZssf8/ldid7v2LeVverZD5DZcPGUsizYkBoyd9tQz9HAVfrRIS8oLJmrmTclK7pMy3f1I80BKwGCY2YQzkxIhTDftm7S74jOGYLd0nhVxhteFBhE7fwkN+TTtnkxRo8/VLcTw==\n" >> $HOME/.ssh/known_hosts
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: >
+        yarn install --frozen-lockfile
+        yarn build
+    - run: >
+        rsync -e "ssh -v" -avz build/ ckanich@bert.cs.uic.edu:
