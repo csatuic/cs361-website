@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  jekyll:
+  docusaurus:
     runs-on: ubuntu-18.04
     steps:
     - uses: webfactory/ssh-agent@v0.4.1
@@ -17,7 +17,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: >
+    - run: |
         yarn install --frozen-lockfile
         yarn build
     - run: >
