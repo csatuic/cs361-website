@@ -93,6 +93,17 @@ module.exports = {
       '@docusaurus/plugin-client-redirects',
       {
         fromExtensions: ['html'],
+        createRedirects: function (existingPath) {
+          let result;
+          if (result = /\/labs\/lab([0-9]+)/.exec(existingPath)) {
+            const num = parseInt(result[1])
+            return [`/lab${num}.html`]
+          }
+          if (result = /\/homeworks\/homework([0-9]+)/.exec(existingPath)) {
+            const num = parseInt(result[1])
+            return [`/homework${num}.html`]
+          }
+        }
       },
     ],
     "docusaurus-plugin-auto-sidebars",
