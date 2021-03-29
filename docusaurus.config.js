@@ -4,13 +4,11 @@ const path = require("path");
 module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
-  url: "https://www.cs.uic.edu/~ckanich/cs361/next/",
-  baseUrl: "/~ckanich/cs361/next/",
+  url: "https://www.cs.uic.edu/~ckanich/cs361/s21/",
+  baseUrl: "/~ckanich/cs361/s21/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",
-  customFields: {
-    arbitrary: "configuration",},
   organizationName: "csatuic", // Usually your GitHub org/user name.
   projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
@@ -88,7 +86,7 @@ module.exports = {
         routeBasePath: "/",
         sidebarPath: require.resolve("./sidebars.auto.js"),
         // Please change this to your repo.
-        editUrl: "https://github.com/kaytwo/cs361-website-next/edit/main/",
+        editUrl: "https://github.com/csatuic/cs361-website/edit/main/",
       },
     ],
     [
