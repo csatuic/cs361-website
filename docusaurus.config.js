@@ -14,6 +14,7 @@ module.exports = {
   organizationName: "csatuic", // Usually your GitHub org/user name.
   projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
+    hideableSidebar: true,
     sidebarCollapsible: false,
     navbar: {
       title: "CS 361: Systems Programming",
