@@ -112,3 +112,7 @@ There are two ways to run and test your code:
 
 If you have any questions about the homework requirements or specification,
 please post on Piazza.
+
+## Due Date
+
+<>This assignment is due {new Date(frontMatter.due.date).toLocaleString('en-us')} in the {Intl.DateTimeFormat().resolvedOptions().timeZone} time zone. See the <Link to="/syllabus">syllabus</Link> for the late turnin policy.</>
