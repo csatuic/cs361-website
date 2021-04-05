@@ -12,6 +12,8 @@ contents:
       link: "https://youtu.be/LfiRKZze0HM"
     - name: "Scalability and the End to End Principle"
       link: "https://youtu.be/RJ_JV3Y-rhc"
+    - name: "Bonus: Tom Scott on the two generals problem"
+      link: https://www.youtube.com/watch?v=IP-rGJKSZ3s
 sidebar: false
 
 ---
