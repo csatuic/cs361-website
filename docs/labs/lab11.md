@@ -36,7 +36,7 @@ curl [options] <url>
     # test basic "can the server receive a post message"
     curl -v http://localhost:5000/speak?hello+how+are+you -X POST 2>&1 | grep "HTTP/1.1 200 OK"
     # test whether listen receives that same post and spits it out correctly
-    (curl -sN http://localhost:5000/listen > test_output) & X=$! ; curl -X POST http://localhost:5000/speak?hello+how+are+you ; sleep 3 ; kill $X
+    (curl -sN http://localhost:5000/listen > test_output) & X=$! ; (curl -X POST http://localhost:5000/speak?hello+how+are+you) ; sleep 3 ; kill $X
     ```
 
 2.  Script will create `test_output` file. Ideal output content of the `test_output` should be as follow:
