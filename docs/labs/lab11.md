@@ -30,7 +30,7 @@ curl [options] <url>
     Modify the PORT number in the script based on the PORT on which you are running the server.
     Note: create and run the script from homework5 folder.
 
-    ```c
+    ```bash
     # test index
     curl -s http://localhost:5000 | diff - index.html
     # test basic "can the server receive a post message"
@@ -39,7 +39,7 @@ curl [options] <url>
     (curl -sN http://localhost:5000/listen > test_output) & X=$! ; curl -X POST http://localhost:5000/speak?hello+how+are+you ; sleep 3 ; kill $X
     ```
 
-2.  Script will create test_output file. Ideal output content of the test_output should be as follow:
+2.  Script will create `test_output` file. Ideal output content of the `test_output` should be as follow:
 
     ```    
     retry: 10000
@@ -48,7 +48,7 @@ curl [options] <url>
 
     ```
 
-Answer the gradescope Quiz based on your learning
+Answer the Gradescope Quiz based on your learning
 
 ## Running and Testing Web Server Code 
 
