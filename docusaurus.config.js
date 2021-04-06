@@ -12,6 +12,9 @@ module.exports = {
   organizationName: "csatuic", // Usually your GitHub org/user name.
   projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-21532225-1'
+    },
     hideableSidebar: true,
     sidebarCollapsible: false,
     navbar: {
@@ -107,6 +110,7 @@ module.exports = {
       },
     ],
     "docusaurus-plugin-auto-sidebars",
+    "@docusaurus/plugin-google-analytics"
   ],
   themes: [
     [
