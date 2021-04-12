@@ -17,8 +17,8 @@ import site from '@site/course.json'
 ## Introduction to Wireshark 
 [Wireshark](https://www.wireshark.org/docs/wsug_html_chunked/ChapterIntroduction.html) is a open-source 
 network protocol analyzer. It is extremely useful in debugging network traffic. Wireshark consists of 
-two parts: one is a packet capture engine powered by tcpdump, and the other is a powerful and expressive 
-packet parsing capability that understands hundreds of different network protocols. [Download](https://www.wireshark.org/#download) and install the wireshark.
+two parts: one is a packet capture engine powered by `tcpdump`, and the other is a powerful and expressive 
+packet parsing capability that understands hundreds of different network protocols. [Download](https://www.wireshark.org/#download) and install Wireshark.
 
 ## TCP Packets Analysis in Wireshark
 
@@ -26,14 +26,14 @@ Let's examine packets captured during [TCP communication](https://www.guru99.com
 
 ![TCP 3 Way Handshake Capture](../../static/img/Wireshark_Layout.png)
 
-Here both server as well as client are running on localhost i.e. 127.0.0.1. Server is using port 6000 
+Here both server as well as client are running on localhost (i.e., `127.0.0.1`). Server is using port `6000` 
 and Client is using port 54478. After three way handshake, Client sends data to Server(Packet no. 4). 
 Server acknowledges and then replies back to the Client with some data(Packet no. 6). The Client 
 acknowledges this packet. Finally socket is closed from both sides.
 
 ## Capture the Live Traffic
 
-1.  Use the following python scripts for generating network traffic.
+1. Python is pre-installed on most Linux distributions and MacOS. However, if Python is not installed, you can download and install it from [here](https://www.python.org/downloads/). Use the following python scripts for generating network traffic.
 
 ```python
 #TCPServer.py
@@ -46,7 +46,7 @@ sock.listen(5)
 
 while(1):
     connection,client_address=sock.accept()
-    data = connection.recv(1024);
+    data = connection.recv(1024)
     print("Received Data from ",client_address ,data)
     connection.sendall(b"Hello Client!")
     connection.close()
@@ -71,8 +71,8 @@ print("Received Data from server: ",data)
 sock.close()
 ```
 
-2.  Default port for TCP Server is set to 6000. We will be running our TCP Server over local interface 
-    with ip address 127.0.0.1 . Start the TCP Server using following command:
+2.  Default port for TCP Server is set to `6000`. We will be running our TCP Server over local interface 
+    with ip address `127.0.0.1`. Start the TCP Server using following command:
 
 ```bash
     python TCPServer.py
@@ -142,23 +142,26 @@ server_socket.close()
 
 ## Tips and Tricks
 
-1.  While running program on remote system, gui based Wireshark will not be available directly. Thus it 
-    is recommended to use tshark or tcpdump to capture the packets and store them in pcap file on remote system. 
-    This file can be later analyzed with Wireshark.
+-  While running program on remote system, GUI based Wireshark will not be available directly. Thus it 
+    is recommended to use `tshark` or `tcpdump` to capture the packets and store them in pcap file on remote system. 
+    This file can be later analyzed with Wireshark. You can install `tshark` on Linux using `sudo apt-get update && sudo apt-get install tshark -y`. Similar to Python `tcpdump` is pre-installed with most Linux distributions and MacOS. <u>Please note that installing programs and capturing traffic require admin privilege which is not available on SystemsX.</u>
+    The following commands tell `tshark` and `tcpdump` to capture traffic on a specific interface: 
 
 ```bash
     sudo tshark -i <interface name> -w <filename>.pcap
     sudo tcpdump -i <interface name> -w <filename>.pcap
 ```
 
-2.  Filters are valuable features of Wireshark. Simply Right Click on any field within Packet Details 
-    Pane and select Apply as Filter. Now only packets satisfying filters will be displayed.
+-  Filters are valuable features of Wireshark. Simply Right Click on any field within Packet Details 
+    Pane and select Apply as Filter. Now only packets satisfying filters will be displayed. For instance, 
+    using the following filter will display packets with `tcp` port `1234`, and source and destination IP address
+    `1.2.3.3` and `1.2.3.4`.
 
 ```bash
     (tcp.dstport == 1234) && (ip.dst == 1.2.3.4) && (ip.src == 1.2.3.3)
 ```
 
-3.  Many times you might face the issue of "Port Already in use" even though program seems terminated. 
+-  Many times you might face the issue of "Port Already in use" even though program seems terminated. 
     In this case find pid associated with that port using netstat and kill the program using acquired pid.
 
 ```bash
@@ -166,7 +169,8 @@ server_socket.close()
     sudo kill -9 <pid>
 ```
 
-Note: If you are using systemsX machines for these experiments then use the <Link to={frontMatter.student_ports_link}>port</Link> assigned to you from <Link to={frontMatter.github_link}>homework5</Link>. 
+<!-- commented this since it's not available on SystemsX -->
+<!-- Note: If you are using systemsX machines for these experiments then use the <Link to={frontMatter.student_ports_link}>port</Link> assigned to you from <Link to={frontMatter.github_link}>homework5</Link>.  -->
 
 Answer the Gradescope Quiz based on your learning.
 
