@@ -135,11 +135,10 @@ server_socket.close()
 ```
 
 2.  Now let's examine <Link to={frontMatter.webchat_capture}>this</Link> pcap file containing 
-    transactions with webchat server from homework5. In this scenario, three clients are communicating 
-    with each other using webchat server. Initially on connecting with webchat server each client sends 
-    message saying, "Hello, I am Client <1/2/3>". Later while disconnecting each client sends message 
-    saying, "Bye, from Client <1/2/3>"
-
+    transactions with webchat server from homework5. <mark>Gradescope Questions will be based on 
+    it</mark>. In this scenario, three clients are communicating with each other using webchat server. 
+    Initially on connecting with webchat server each client sends message saying, "Hello, I am Client <
+    1/2/3>". Later while disconnecting each client sends message saying, "Bye, from Client <1/2/3>" 
 
 ## Tips and Tricks
 
