@@ -169,8 +169,7 @@ server_socket.close()
     sudo kill -9 <pid>
 ```
 
-<!-- commented this since it's not available on SystemsX -->
-<!-- Note: If you are using systemsX machines for these experiments then use the <Link to={frontMatter.student_ports_link}>port</Link> assigned to you from <Link to={frontMatter.github_link}>homework5</Link>.  -->
+Note: If you are using systemsX machines for these experiments then use the <Link to={frontMatter.student_ports_link}>port</Link> assigned to you from <Link to={frontMatter.github_link}>homework5</Link>. 
 
 Answer the Gradescope Quiz based on your learning.
 
