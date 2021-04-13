@@ -27,3 +27,4 @@ yarn-error.log*
 .pnp.*
 
 schedule.json
+sidebars.auto.js

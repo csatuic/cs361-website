@@ -4,6 +4,8 @@ date: 2021-04-12T8:00:00-5:00
 title: Concurrency concepts
 contents:
     - "Book: 12.0-12.3"
+    - name: "Concurrency intro"
+      link: https://youtu.be/LDPUWGLjHIg
 sidebar: false
 
 ---
