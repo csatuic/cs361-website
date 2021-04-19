@@ -17,7 +17,7 @@ Accept the <Link to={frontMatter.github_link}>Homework 6</Link>. We will use mul
 1.  Uses all available elevators, rather than just 1.
 2.  Finishes the final case in the ``make test`` test cases in at most 40 seconds.   
 3.  You will do this by implementing a central elevator controller that responds to the function 
-    calls passenger_request and elevator_ready in hw6.c.  You should change only code in hw6.c, not main.c or hw6.h
+    calls passenger_request and elevator_ready in `hw6.c`.  You should change only code in `hw6.c`, not `main.c` or `hw6.h`
 
 
 ## pthread_mutex_t
@@ -31,7 +31,7 @@ Accept the <Link to={frontMatter.github_link}>Homework 6</Link>. We will use mul
 
 1.  Each elevator and passenger is represented by a different thread.    
 
-2.  The thread for main in main.c is below,
+2.  The thread for main in `main.c` is below,
 ```c
 int main(int argc, char** argv) {
     struct timeval before;
@@ -101,7 +101,7 @@ void* start_passenger(void *arg) {
     }
 }
 ```
-Each passenger starts on a random floor, and then takes a number of trips on the elevator, each time picking a new random floor to go to.  Note that to get the elevator, the passenger calls the passenger_request function - this is code you will write/modify in hw6.c.
+Each passenger starts on a random floor, and then takes a number of trips on the elevator, each time picking a new random floor to go to.  Note that to get the elevator, the passenger calls the `passenger_request` function - this is code you will write/modify in `hw6.c`.
 
 5.  Now, let's look at elevators.  We use the following struct to hold information about each elevator",
 ```c
@@ -134,13 +134,13 @@ void* start_elevator(void *arg) {
     }
 }
 ```
-The elevator initializes some variables, and then goes into a loop where it calls elevator_ready, and then calls sched_yield, a system call which causes it to give up the CPU.  Elevator_ready is code you will write/modify within hw6.c.
+The elevator initializes some variables, and then goes into a loop where it calls `elevator_ready`, and then calls `sched_yield`, a system call which causes it to give up the CPU.  Elevator_ready is code you will write/modify within hw6.c.
 
 
 ## Code you can change
 
 ### global variables
-At the top of main.c, there are some global variables (shown below). Right now these are used with our single running elevator.  You will want to modify these so each elevator has their own set.
+At the top of `main.c`, there are some global variables (shown below). Right now these are used with our single running elevator.  You will want to modify these so each elevator has their own set.
 ```c
     pthread_mutex_t lock;
     int current_floor;
@@ -151,8 +151,8 @@ At the top of main.c, there are some global variables (shown below). Right now t
 These are a mutex used to make sure two threads aren't making changes to a single elevator at the same time, an int representing where the elevator currently is, an int representing which direction it's going, an int with the number of passengers, and the elevators current state.
 
 
-### passenger_request  
-Every passenger thread calls passenger_request, below.  This is code in hw6.c which you will want to modify. Let's look at what it does now.
+### `passenger_request`  
+Every passenger thread calls passenger_request, below.  This is code in `hw6.c` which you will want to modify. Let's look at what it does now.
 ```c
 void passenger_request(int passenger, int from_floor,
                        int to_floor,void (*enter)(int, int),
@@ -185,7 +185,7 @@ void passenger_request(int passenger, int from_floor,
     }
 }
 ```
-1.  passenger_request takes in an int representing a passenger, a floor the passenger is current on (from_floor), a floor the passenger is currently on (to_floor), and pointers to two functions, enter and exit.  These functions are defined in main.c, and you will not be able to change them. 
+1.  `passenger_request` takes in an int representing a passenger, a floor the passenger is current on (from_floor), a floor the passenger is currently on (to_floor), and pointers to two functions, enter and exit.  These functions are defined in `main.c`, and you will not be able to change them. 
 
 2.  As you can see, right now the passenger first waits for the elevator. We use a mutex to make sure multiple passengers don't try to get on the elevator at the same time.  If the elevator is on our floor, and the door is open, and no other passengers are in it, then we call the enter function, increment the occupancy, and break out of the waiting loop.  (Note that every elevator holds at most one passenger.)
 
@@ -194,8 +194,8 @@ void passenger_request(int passenger, int from_floor,
 4.  The exit and enter function are passed in from main - they are passenger_enter and passenger_exit in main.c.  They mostly perform a number of checks to make sure the passengers and elevators are not doing things that should be impossible. 
 
 
-### elevator_ready
-Every elevator thread calls elevator ready, in hw6.c.  You will want to modify this code as well.
+### `elevator_ready`
+Every elevator thread calls `elevator_ready`, in `hw6.c`.  You will want to modify this code as well.
 
 ```c
 void elevator_ready(int elevator, int at_floor,
@@ -224,17 +224,17 @@ void elevator_ready(int elevator, int at_floor,
     pthread_mutex_unlock(&lock);
 }
 ```
-1.  elevator_ready takes an int representing the elevator, an int representing its current floor, and pointers to three functions, move_direction, door_open and door_close.
+1.  `elevator_ready` takes an int representing the elevator, an int representing its current floor, and pointers to three functions, `move_direction`, `door_open` and `door_close`.
     
 2.  Right now we are only using one elevator, so if we are not elevator 0, we don't do anything.
 
-3.  Next, we check our current state.  If we are ELEVATOR_ARRIVED, we call the door_open function and change our state to ELEVATOR_OPEN
+3.  Next, we check our current state.  If we are `ELEVATOR_ARRIVED`, we call the door_open function and change our state to `ELEVATOR_OPEN`
 
-4.  If we are ELEVATOR_OPEN, we close our door by calling the door_close button and changing our state to ELEVATOR_CLOSED
+4.  If we are `ELEVATOR_OPEN`, we close our door by calling the door_close button and changing our state to `ELEVATOR_CLOSED`
 
-5.  Otherwise, we move!  We check if we are at the ground or top floor, and if we are, we change direction. Then we call the move_direction function and either add or subtract one from our current floor, depending on what direction we are traveling.  Next, we set our state to ELEVATOR_ARRIVED.  Note that this means we currently stop and open our doors at every floor.
+5.  Otherwise, we move!  We check if we are at the ground or top floor, and if we are, we change direction. Then we call the `move_direction` function and either add or subtract one from our current floor, depending on what direction we are traveling.  Next, we set our state to `ELEVATOR_ARRIVED`.  Note that this means we currently stop and open our doors at every floor.
 
-6.   The passed in functions are elevator_move_direction, elevator_open_door, elevator_close_door in main.c.  Like our other functions, they perform a number of checks to make sure our elevator isn't doing anything it shouldn't, like moving between multiple floors at a turn.  They also call usleep, which will give up the CPU for some amount of time.  This will allow other passenger and elevator threads to run regularly.
+6.   The passed in functions are `elevator_move_direction`, `elevator_open_door`, `elevator_close_door` in `main.c`.  Like our other functions, they perform a number of checks to make sure our elevator isn't doing anything it shouldn't, like moving between multiple floors at a turn.  They also call usleep, which will give up the CPU for some amount of time.  This will allow other passenger and elevator threads to run regularly.
 
 
 ## Getting Started
@@ -245,7 +245,7 @@ void elevator_ready(int elevator, int at_floor,
 
 3.  Handling multiple elevators should be the last item on your TODO list. An easy way to do it is to randomly decide, for each passenger, which elevator they should use, independent of everything else. Then you can treat each elevator+passengers group separately.
 
-4.  You could use an extra set of mutexes around the whole passenger_request() function to make sure only one userÕs request is handled by each elevator at one time.
+4.  You could use an extra set of mutexes around the whole `passenger_request()` function to make sure only one userÕs request is handled by each elevator at one time.
 
 
 #### Answer the Gradescope Questions based on your understanding of the code.
