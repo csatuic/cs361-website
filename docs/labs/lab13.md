@@ -5,7 +5,7 @@ layout: default
 date: 2021-04-19
 # notes gets passed through markdownify
 pairings: https://docs.google.com/spreadsheets/d/1B1g2b9jLbEzIVQHbElN0DabbQQOQaABSlT6mbfiqJo8
-github_link: 
+github_link: https://classroom.github.com/a/qimFifPl
 ---
 import Link from '@docusaurus/Link';
 import site from '@site/course.json'
