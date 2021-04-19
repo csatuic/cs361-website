@@ -13,11 +13,11 @@ layout: default
 import Link from '@docusaurus/Link';
 import site from '@site/course.json'
 
-## concurrent elevator controller
+## Concurrent Elevator Controller
 
 <> <Link to={frontMatter.github_link}>Assignment checkout link</Link>.</>
 
-An M story highrise has N elevators in a single “elevator bank”, each able to serve every floor of the building. Contrary from most elevator designs, there are no buttons to choose a destination floor inside the elevator. Instead, the elevator lobby at each floor has M individual “destination floor” buttons, and passengers choose their destination by pushing the appropriate button. Once a button is pushed, a display near the buttons tells the passenger which elevator door to wait by. In this assignment, elevators serve only one passenger at a time.
+An M story high-rise has N elevators in a single “elevator bank”, each able to serve every floor of the building. Contrary from most elevator designs, there are no buttons to choose a destination floor inside the elevator. Instead, the elevator lobby at each floor has M individual “destination floor” buttons, and passengers choose their destination by pushing the appropriate button. Once a button is pushed, a display near the buttons tells the passenger which elevator door to wait by. In this assignment, elevators serve only one passenger at a time.
 
 Your assignment is to create an elevator controller that ensures that all passengers receive service, minimizing the amount of time it takes to serve all of the passengers, and how much CPU time is used to run the controller.
 
@@ -49,11 +49,11 @@ void elevator_ready(int elevator, int at_floor,
 
 The template code works correctly, but is terribly slow. In part, this is because passengers often “miss” the elevator (don’t get in in time), or miss their floor (stay on the elevator). In part, it is because the elevator stops at every floor, and we only use one elevator.
 
-For a full score, have a fully working solution that uses all available elevators, and finishes each test case in less than 10 seconds with out any busy waiting (aka uses less than 1% CPU).
+For a full score, have a fully working solution that uses all available elevators, and finishes each test case in less than 10 seconds without any busy waiting (aka uses less than 1% CPU).
 
 There is also a **leaderboard** for this assignment. The leaderboard is only for style points, which are not included in your final grade. The leaderboard score is computed as 10000 - (execution time for the leaderboard test case in milliseconds).
 
-The autograder runs a slightly modified version of the Makefile given in the handout - all of the test case variables are the same, but it does not print to the screen, which will likely cause execution time and CPU usage to go down by a very small amount compared to running on systems1. You should be able to write this code on any modern linux machine. Please see the autograder for specific point values. The entire assignment is graded out of 80 points.
+The autograder runs a slightly modified version of the Makefile given in the handout - all of the test case variables are the same, but it does not print to the screen, which will likely cause execution time and CPU usage to go down by a very small amount compared to running on systemsX or devcontainer. You should be able to write this code on any modern Linux machine. Please see the autograder for specific point values. The entire assignment is graded out of 80 points.
 
 #### Notes
 * Every passenger pushes a button.
