@@ -245,7 +245,7 @@ void elevator_ready(int elevator, int at_floor,
 
 3.  Handling multiple elevators should be the last item on your TODO list. An easy way to do it is to randomly decide, for each passenger, which elevator they should use, independent of everything else. Then you can treat each elevator+passengers group separately.
 
-4.  You could use an extra set of mutexes around the whole `passenger_request()` function to make sure only one userÕs request is handled by each elevator at one time.
+4.  You could use an extra set of mutexes around the whole `passenger_request()` function to make sure only one user's request is handled by each elevator at one time.
 
 
 #### Answer the Gradescope Questions based on your understanding of the code.
