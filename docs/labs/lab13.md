@@ -22,9 +22,9 @@ Accept the <Link to={frontMatter.github_link}>Homework 6</Link>. We will use mul
 
 ## pthread_mutex_t
 
-1.  The homework currently uses a single pthread_mutex_t to make sure multiple threads don't try to do dangerous things (like getting on and off the elevator) at the same time.  
+1.  The homework currently uses a single `pthread_mutex_t` to make sure multiple threads don't try to do dangerous things (like getting on and off the elevator) at the same time.  
 2.  A mutex guarantees that only a single thread will be able to run in protected sections of code at time.
-3.  When the system call pthread_mutex_lock is called on a pthread_mutex_t, only the first thread to call lock will be allowed to run in any code protected by the mutex.  Any other thread that calls pthread_mutex_lock on the same mutex will be blocked until the thread currently in the mutex calls pthread_mutex_unlock.  
+3.  When the system call `pthread_mutex_lock` is called on a `pthread_mutex_t`, only the first thread to call lock will be allowed to run in any code protected by the mutex.  Any other thread that calls `pthread_mutex_lock` on the same mutex will be blocked until the thread currently in the mutex calls `pthread_mutex_unlock`.  
     
 
 ## Elevators and Passengers
@@ -239,7 +239,7 @@ void elevator_ready(int elevator, int at_floor,
 
 ## Getting Started
 
-1.  Start by making sure your passengers have time to get on and off the elevator. You can do that with condition variables(pthread_cond_t, [pthread_cond_init](https://linux.die.net/man/3/pthread_cond_init), [pthread_cond_wait](https://linux.die.net/man/3/pthread_cond_wait)) or barriers(pthread_barrier_t). We wil be using condition variable based approach. Use one condition variable to make the passenger wait for the door to open, and another to make the elevator wait for the passenger to enter. (We will go over condition variables in class this week.)
+1.  Start by making sure your passengers have time to get on and off the elevator. You can do that with condition variables(`pthread_cond_t`, [pthread_cond_init](https://linux.die.net/man/3/pthread_cond_init), [pthread_cond_wait](https://linux.die.net/man/3/pthread_cond_wait)) or barriers(`pthread_barrier_t`). We wil be using condition variable based approach. Use one condition variable to make the passenger wait for the door to open, and another to make the elevator wait for the passenger to enter. (We will go over condition variables in class this week.)
 
 2.  The template solution has a single set of global variables. You'll probably want to have one set per elevator. Define an elevator struct that holds all your necessary state per elevator, and make an array of such structs.
 
