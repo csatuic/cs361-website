@@ -6,7 +6,6 @@ due:
     date: 2021-04-30T16:59:00-5:00
     description: 'Assignment #6 due'
 date: 2021-04-19
-# TODO: fix this
 github_link: https://classroom.github.com/a/qimFifPl
 section: homeworks
 layout: default
