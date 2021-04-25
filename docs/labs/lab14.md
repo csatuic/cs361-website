@@ -4,7 +4,7 @@ description: Block on a Condition Variable
 layout: default
 date: 2021-04-26
 # notes gets passed through markdownify
-pairings: 
+pairings: https://docs.google.com/spreadsheets/d/1W84hOzdF4jmKDEjtqBsQomOpGemSVm9mFrwkw4aYyQE/
 github_link: https://classroom.github.com/a/qimFifPl
 ---
 import Link from '@docusaurus/Link';
