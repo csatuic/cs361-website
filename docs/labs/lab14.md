@@ -1,6 +1,6 @@
 ---
 title: week 15 lab
-description: Handling Critical Sections Among Threads 
+description: Block on a Condition Variable
 layout: default
 date: 2021-04-26
 # notes gets passed through markdownify
@@ -10,7 +10,7 @@ github_link: https://classroom.github.com/a/qimFifPl
 import Link from '@docusaurus/Link';
 import site from '@site/course.json'
 
-## Handling Critical Sections Among Threads
+## Block on a Condition Variable
 Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>.
 
 ### pthread_mutex_t
@@ -28,39 +28,37 @@ Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>
 
 ### pthread_cond_t
 
-1. Enable threads to wait efficiently for changes to shared state protected by a lock.
+1. A conditional variable enables threads to wait efficiently for changes to shared state protected by a lock.
 
 2. To setup conditional variable, call `pthread_cond_init(pthread_cond_t *restrict cond, const pthread_condattr_t *restrict attr)`.
 
-3. Calling `pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)` will atomically unlocks mutex and performs the wait for the condition. Make sure that thread is locked while calling pthread_cond_wait function.
+3. Calling `pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)` will suspend the calling thread till a condition becomes true. We can continuously check for a condition using a `while` loop. It is important to have a lock acquired before calling the `pthread_cond_wait` function.
 
-4. `pthread_cond_signal(pthread_cond_t *cond)` shall unblock the thread blocked on conditional variable. Also check `pthread_cond_broadcast(pthread_cond_t *cond)`.
+4. The function call `pthread_cond_signal(pthread_cond_t *cond)` shall unblock the thread blocked on conditional variable. This is usually called after performing the actions that make the condition true. This is the same condition for which the previous thread is waiting. You can also check out `pthread_cond_broadcast(pthread_cond_t *cond)`.
 
-5. Execute the following code, compile using provided Makefile
+5. The following code is an example of conditional variables:
 
-```c
-//How to run the code: ./cond_test 3
+```c title="cond_wait.c"
+//To run the code: ./cond_test 3
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
 #include <unistd.h>
 
 pthread_mutex_t mylock;
 pthread_cond_t cond_var;
 int data = -1;
 
-void* printer(void* arg){
-    int *repeat = (int*)arg;
-    for(int i = 1; i<=*repeat ;i++){
-        printf("Trying to Acquire Lock in printer Thread\n");
+void* printer(void* arg) {
+    int* repeat = (int*)arg;
+    for (int i = 1; i <= *repeat; i++) {
         pthread_mutex_lock(&mylock);
         printf("Acquired Lock in printer Thread\n");
-        while(data ==-1){
-            printf("Waiting for data to come ...\n");
-            pthread_cond_wait(&cond_var,&mylock);
+        while (data == -1) {
+            pthread_cond_wait(&cond_var, &mylock);
             printf("Received Signal on printer Thread\n");
         }
-        printf("Data for iteration %d: %d\n",i,data);
+        printf("Data for iteration %d: %d\n", i, data);
         data = -1;
         pthread_mutex_unlock(&mylock);
         printf("Released Lock in printer Thread\n");
@@ -68,41 +66,39 @@ void* printer(void* arg){
     pthread_exit(0);
 }
 
-int main(int argc, char **argv){
-    if(argc < 2){
-        printf("Usage: %s <repeat>\n",argv[0]);
+int main(int argc, char** argv) {
+    if (argc < 2) {
+        printf("Usage: %s <repeat>\n", argv[0]);
         exit(-1);
     }
     pthread_t tid;
     int repeat = atoi(argv[1]);
-    //Create attributes
-    pthread_attr_t attr;
-    pthread_attr_init(&attr);
-    pthread_cond_init(&cond_var,NULL);
-    pthread_create(&tid,&attr,printer,&repeat);
-    sleep(1);// Let printer Thread go ahead and get blocked
-    for(int i=repeat;i>0;i--){
-        printf("Trying to Acquire Lock in Main Thread\n");
+    pthread_cond_init(&cond_var, NULL);
+    pthread_create(&tid, NULL, printer, &repeat);
+    sleep(1);  // Let printer Thread go ahead and get blocked
+    for (int i = repeat; i > 0; i--) {
         pthread_mutex_lock(&mylock);
         printf("Acquired Lock in Main Thread\n");
         data = i;
-        sleep(1);// Just to demonstrate the point, delaying signal
+        sleep(1);  // Just to demonstrate the point, delaying signal
         pthread_cond_signal(&cond_var);
         printf("Sending Signal from Main Thread\n");
         //pthread_cond_broadcast: signals cond_wait_on all threads
         pthread_mutex_unlock(&mylock);
         printf("Released lock in Main Thread\n");
-        sleep(1);// Let printer Thread go ahead and get blocked
+        sleep(1);  // Let printer Thread go ahead and get blocked
     }
 
     //Wait till thread completes the work
-    pthread_join(tid,NULL);
+    pthread_join(tid, NULL);
     pthread_cond_destroy(&cond_var);
     pthread_mutex_destroy(&mylock);
 }
 ```
 
-```c
+6. To compile, you can the following `Makefile` or add the recipe to an existing one. To run, you'll have to provide an argument using `./cond_test <repeat>`.
+
+```make
 all: cond_test 
 
 cond_test: cond_test.c
@@ -111,75 +107,8 @@ clean:
     rm cond_test
 ```
 
-## Coordinating passengers and elevators
+7. Answer the questions on Gradescope.
 
-### Passenger_Request
-
-```c
-void passenger_request(int passenger, int from_floor, int to_floor,
-                                   void (*enter)(int, int), void(*exit)(int, int))
-{
-        // wait for the elevator to arrive at our origin floor, then get in                                                                        
-        int waiting = 1;
-        while(waiting) {
-                pthread_mutex_lock(&lock);
-                if(current_floor == from_floor && state == ELEVATOR_OPEN && occupancy==0) {
-                        enter(passenger, 0);
-                        occupancy++;
-                        waiting=0;
-                }
-                pthread_mutex_unlock(&lock);
-        }
-        // wait for the elevator at our destination floor, then get out                                                                            
-        int riding=1;
-        while(riding) {
-                pthread_mutex_lock(&lock);
-                if(current_floor == to_floor && state == ELEVATOR_OPEN) {
-                        exit(passenger, 0);
-                        occupancy--;
-                        riding=0;
-                }
-                pthread_mutex_unlock(&lock);
-        }
-}
-```
-
-### elevator_ready
-
-```c
-void elevator_ready(int elevator, int at_floor,
-                         void(*move_direction)(int, int),
-                           void(*door_open)(int), void(*door_close)(int)) {
-        if(elevator!=0) return;
-        pthread_mutex_lock(&lock);
-        if(state == ELEVATOR_ARRIVED) {
-                door_open(elevator);
-                state=ELEVATOR_OPEN;
-        }
-        else if(state == ELEVATOR_OPEN) {
-                door_close(elevator);
-                state=ELEVATOR_CLOSED;
-        }
-        else {
-                if(at_floor==0 || at_floor==FLOORS-1)
-                        direction*=-1;
-                move_direction(elevator,direction);
-                current_floor=at_floor+direction;
-                state=ELEVATOR_ARRIVED;
-        }
-        pthread_mutex_unlock(&lock);
-}
-```
-
-1. The code for the elevator and passenger threads is above. The code above uses mutexes to protect shared variables: for example, the `passenger_request` function uses a mutex to protect where it checks and changes elevator variables, in order to insure that multiple passengers do not edit the elevator at the same time.  
-
-2. As you can see, right now elevators stop and open their doors at every floor. Try adding code so that your elevator is assigned a passenger, and rather than stopping at every floor, goes directly to that passenger's `from_floor`, picks up the passenger, and takes them directly to their `to_floor`. This will probably require adding new variables to the existing elevator variables, as you will need some way for the elevator to know which passenger it is assigned to.
-
-3. Remember that the elevator is full when it is holding a single passenger, so you do not have to worry about picking up multiple passengers.
-
-4. Notice that right now the elevator also does not always wait for passengers.  Try adding a barrier so that when the elevator gets to the passenger's floor, it stops until the passenger gets on.  
-
-#### Answer the Gradescope Questions based on your understanding.
 
 ## Peer evaluation rubric
 
@@ -199,3 +128,85 @@ You can find your pairings for the lab in <Link to={frontMatter.pairings}>this s
 | Discuss your answers | 1 point |
 | Evaluate another student | 1 point |
 | Total points | 8 points |
+
+
+## Getting started on HW6
+
+### Structures for Elevator and Passengers
+
+1. To better manage the data across elevator and passenger threads, we suggest using the following data structures:
+```c
+struct psg {
+    int id;
+    int from_floor;
+    int to_floor;
+    int elenumber;
+    enum { WAITING = 1,
+           RIDING = 2,
+           DONE = 3 } state;
+    struct psg* next;
+} passengers[PASSENGERS];
+
+struct ele {
+    int current_floor;
+    int direction;
+    int occupancy;
+    enum { ELEVATOR_ARRIVED = 1,
+           ELEVATOR_OPEN = 2,
+           ELEVATOR_CLOSED = 3 } state;
+    struct psg* waiting;
+    struct psg* riding;
+} elevators[ELEVATORS];
+```
+
+2. Besides the passenger related details, `psg` contains `elenumber` that can be used to assign an elevator to the passenger when there are more than one elevators in a *round-robin* manner. Notice that `psg` also contains a pointer of its own type, which means the structure can be used as a linked list when multiple passengers are allowed in a elevator.
+
+3. The elevator structor `ele` contains two linked lists, `waiting` and `riding` that represent the passengers that are waiting for and currently riding the elevator respectively.
+
+4. Both structures also have a `state` enums which are useful when threads are performing critical functions or checking for conditions.
+
+### Add and Remove passenger from the linked list
+
+Once you've the passenger and elevator structures ready, you can use the following two functions that can add and remove a passenger to the linked list. They take the `head` of the linked list and the `passenger` structure as arguments.
+
+```c
+// MUST hold lock and check for sufficient capacity before calling this,
+// and MUST NOT be in the riding queue. adds to end of queue.
+void add_to_list(struct psg** head, struct psg* passenger) {
+    struct psg* p = *head;
+    if (p == NULL)
+        *head = passenger;
+    else {
+        while (p->next != NULL) {
+            p = p->next;
+        }
+        p->next = passenger;
+    }
+}
+
+// Must hold lock, does not update occupancy.
+void remove_from_list(struct psg** head, struct psg* passenger) {
+    struct psg* p = *head;
+    struct psg* prev = NULL;
+    while (p != passenger) {
+        prev = p;
+        p = (p)->next;
+        // don't crash because you got asked to remove someone that isn't on this
+        // list
+        assert(p != NULL);
+    }
+    // removing the head - must fix head pointer too
+    if (prev == NULL)
+        *head = p->next;
+    else
+        prev->next = p->next;
+    passenger->next = NULL;
+}
+```
+
+### Things to do
+
+Now that you've access to the code mentioned above, you have the following three to-dos:
+1. Modify `scheduler_init()` to initialize all variables inside the passenger and elevator structures for ALL the threads. You should also initialize all the mutexes, conditional variables, and barriers you might be using in this function.
+2. Modify `passenger_request()` such that the functions sets the right source and destination floors for the passenger and wait for the elevator to arrive. Once the elevator has arrived, wait for the passenger to reach their destination floor, and finally let the passenger exit the elevator.
+3. Modify `elevator_ready()` such that the elevator picks up all the passengers that are waiting for the elevator, opens the elevator door and wait for the passenger enter the elevator. Once the passenger has entered, drop the passenger off at the destination floor and wait for the passenger to exit.
