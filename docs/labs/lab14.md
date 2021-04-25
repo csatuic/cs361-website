@@ -19,7 +19,7 @@ Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>
 
 2. Before you use the mutex, you will need to set it up by calling `pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_t *attr)`. This will initialize the lock and assign a unique id to the mutex (Note: `*attr` can be `NULL`.)
 
-3. Before any code you don't want multiple threads in, call `pthread_mutex_lock(pthread_mutex_t *mutex)`. This will allow one thread in, and block any other threads until that thread has released the mutex.
+3. When you don't want multiple threads to access the critical section of the code simultaneously, call `pthread_mutex_lock(pthread_mutex_t *mutex)`. This will allow one thread in, and block any other threads until that thread has released the mutex.
 
 4. Make sure to call `pthread_mutex_unlock(pthread_mutex_t *mutex)` to release the mutex after the critical section.
 
@@ -117,7 +117,7 @@ You can find your pairings for the lab in <Link to={frontMatter.pairings}>this s
 | Session | Task | Points |
 |---|---|---|
 | Session A | Discuss questions 1, 2, and 3 | 1 point |
-| Session B | Discuss questions 4, 5, and 6 | 1 point |
+| Session B | Discuss questions 4.1, 4.2 | 1 point |
 
 
 ## Total grade calculation
