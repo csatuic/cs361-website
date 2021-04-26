@@ -1,6 +1,6 @@
 ---
 title: week 15 lab
-description: Block on a Condition Variable
+description: Using Condition Variables for synchronization
 layout: default
 date: 2021-04-26
 # notes gets passed through markdownify
@@ -10,8 +10,7 @@ github_link: https://classroom.github.com/a/qimFifPl
 import Link from '@docusaurus/Link';
 import site from '@site/course.json'
 
-## Block on a Condition Variable
-Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>.
+Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>. It's highly recommended that you watch watch the kickoff video and the week 14 videos before starting homework 6.
 
 ### pthread_mutex_t
 
@@ -32,9 +31,9 @@ Make sure you have accepted <Link to={frontMatter.github_link}>Homework 6</Link>
 
 2. To setup conditional variable, call `pthread_cond_init(pthread_cond_t *restrict cond, const pthread_condattr_t *restrict attr)`.
 
-3. Calling `pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)` will suspend the calling thread till a condition becomes true. We can continuously check for a condition using a `while` loop. It is important to have a lock acquired before calling the `pthread_cond_wait` function.
+3. Calling `pthread_cond_wait(pthread_cond_t *restrict cond, pthread_mutex_t *restrict mutex)` will suspend the calling thread until it's instructed to wake up by another thread. Unfortunately, it's POSSIBLE for your thread to be woken up by the operating system without the condition being true. Thus, best practice is to wait inside a while loop that checks for the condition that the thread cares about. Note that this is different from "busy waiting" using a spin lock.
 
-4. The function call `pthread_cond_signal(pthread_cond_t *cond)` shall unblock the thread blocked on conditional variable. This is usually called after performing the actions that make the condition true. This is the same condition for which the previous thread is waiting. You can also check out `pthread_cond_broadcast(pthread_cond_t *cond)`.
+4. The function call `pthread_cond_signal(pthread_cond_t *cond)` shall unblock **one** thread blocked on a conditional variable. Once unblocked, the woken-up thread will wait until it can reacquire the lock, and then it will move on with the mutex acquired. If you'd like **every** thread waiting on a given condition variable to wake up (instead of only one), you can use `pthread_cond_broadcast(pthread_cond_t *cond)`.
 
 5. The following code is an example of conditional variables:
 
@@ -210,3 +209,10 @@ Now that you've access to the code mentioned above, you have the following three
 1. Modify `scheduler_init()` to initialize all variables inside the passenger and elevator structures for ALL the threads. You should also initialize all the mutexes, conditional variables, and barriers you might be using in this function.
 2. Modify `passenger_request()` such that the functions sets the right source and destination floors for the passenger and wait for the elevator to arrive. Once the elevator has arrived, wait for the passenger to reach their destination floor, and finally let the passenger exit the elevator.
 3. Modify `elevator_ready()` such that the elevator picks up all the passengers that are waiting for the elevator, opens the elevator door and wait for the passenger enter the elevator. Once the passenger has entered, drop the passenger off at the destination floor and wait for the passenger to exit.
+
+
+### More info
+
+[This chapter](https://pages.cs.wisc.edu/~remzi/OSTEP/threads-cv.pdf) also covers the tricky parts about condition variables very well.
+
+A pretty decent explanation of why you need the while loop to check the condition is available in [this](https://stackoverflow.com/a/1461956) stack overflow answer as well.
