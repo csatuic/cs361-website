@@ -127,7 +127,7 @@ You can find your pairings for the lab in <Link to={frontMatter.pairings}>this s
 | Turn in the Gradescope assignment | 5 points |
 | Discuss your answers | 1 point |
 | Evaluate another student | 1 point |
-| Total points | 8 points |
+| Total points | 7 points |
 
 
 ## Getting started on HW6
