@@ -117,14 +117,14 @@ You can find your pairings for the lab in <Link to={frontMatter.pairings}>this s
 | Session | Task | Points |
 |---|---|---|
 | Session A | Discuss questions 1, 2, and 3 | 1 point |
-| Session B | Discuss questions 4.1, 4.2 | 1 point |
+| Session B | Discuss questions 4.1, and 4.2 | 1 point |
 
 
 ## Total grade calculation
 
 | Task | Points |
 |---|---|
-| Turn in the Gradescope assignment | 6 points |
+| Turn in the Gradescope assignment | 5 points |
 | Discuss your answers | 1 point |
 | Evaluate another student | 1 point |
 | Total points | 8 points |
