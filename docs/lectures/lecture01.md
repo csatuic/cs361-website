@@ -195,6 +195,9 @@ Now that you have Docker and VSCode, you can use a linux environment locally. Yo
 memory=4GB # Limits VM memory in WSL 2 to 4 GB
 processors=2 # Limits the WSL 2 VM to two processor cores
 ```
+* WSL2 also does what it can to not gobble up your memory, but you can also manually
+  force it to flush its cache (and return that memory to the host OS) by running
+  the command `echo 1 > /proc/sys/vm/drop_caches`. See [here](https://devblogs.microsoft.com/commandline/memory-reclaim-in-the-windows-subsystem-for-linux-2/) for more info.
 
 
 ## Totally optional but useful.
