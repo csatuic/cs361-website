@@ -145,7 +145,7 @@ Although Microsoft has put a lot of effort into making WSL2 and Windows feel lik
    is: `ln -s /mnt/c/Users/kaytw ~/winhome`
 3. In WSL2, add this text to the bottom of the file `~/.bashrc`:
 ```bash
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+export SSH_AUTH_SOCK=$HOME/.ssh/$WSL_DISTRO_NAME.agent.sock
 ss -a | grep -q $SSH_AUTH_SOCK
 if [ $? -ne 0   ]; then
     rm -f $SSH_AUTH_SOCK
