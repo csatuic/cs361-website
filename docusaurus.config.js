@@ -4,12 +4,12 @@ const path = require("path");
 module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
-  url: "https://www.cs.uic.edu/~ckanich/cs361/s21/",
-  baseUrl: "/~ckanich/cs361/s21/",
+  url: "http://localhost:8080/cs361/f21/",
+  baseUrl: "/cs361/s21/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",
-  organizationName: "csatuic", // Usually your GitHub org/user name.
+  organizationName: "uic-cs361", // Usually your GitHub org/user name.
   projectName: "cs361-website", // Usually your repo name.
   themeConfig: {
     googleAnalytics: {
@@ -35,7 +35,7 @@ module.exports = {
           position: "left",
         },
         {
-          href: "https://github.com/csatuic/cs361-website/",
+          href: "https://github.com/uic-cs361/cs361-website/",
           label: "GitHub",
           position: "right",
         },
@@ -69,12 +69,12 @@ module.exports = {
           title: "More",
           items: [
             {
-              label: "Chris Kanich",
-              to: "https://www.cs.uic.edu/~ckanich/",
+              label: "Jason Polakis",
+              to: "https://www.cs.uic.edu/~polakis",
             },
             {
               label: "GitHub",
-              href: "https://github.com/csatuic/",
+              href: "https://github.com/uic-cs361/",
             },
           ],
         },
@@ -89,7 +89,7 @@ module.exports = {
         routeBasePath: "/",
         sidebarPath: require.resolve("./sidebars.auto.js"),
         // Please change this to your repo.
-        editUrl: "https://github.com/csatuic/cs361-website/edit/main/",
+        editUrl: "https://github.com/uic-cs361/cs361-website/edit/main/",
       },
     ],
     [
