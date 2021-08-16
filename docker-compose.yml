@@ -14,7 +14,7 @@ services:
     image: qoomon/docker-host
     cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
     expose:
-      - "8080"
+      - "3000"
     environment:
       - VIRTUAL_HOST=fb.paperscut.com
 networks:
