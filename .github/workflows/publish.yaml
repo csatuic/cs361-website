@@ -12,7 +12,7 @@ jobs:
       with:
         # this key is restricted to only rsync to the course website directory
         ssh-private-key: ${{ secrets.SSH_KEY }}
-    - run: echo -e "|1|2XhH6IiSRzcpXmmi1xd0MW0Stnw=|DKnzppUong6ZGaZJFO10Ov+LSfI= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAvmSM9cFyLTwaAQjf0j0bHZgsm7pBK/MJyLaaw04+RhW3F8MhvrVK+Zwb1V3q8R2R9s7OM6fkftje+6NbuNbuWqiqeScRamA+vVR2aTrUE7KqIsX2UL0QvVTBJQLEvH/BfyWgDjLx+J2biKXHcYQcoVaRRPkHC8ugKg0bGUHWdp+Bx9Bl0N2crZSUvz7kGm7+PrrXHe41eX8ZyUaxWZssf8/ldid7v2LeVverZD5DZcPGUsizYkBoyd9tQz9HAVfrRIS8oLJmrmTclK7pMy3f1I80BKwGCY2YQzkxIhTDftm7S74jOGYLd0nhVxhteFBhE7fwkN+TTtnkxRo8/VLcTw==\n" >> $HOME/.ssh/known_hosts
+    - run: echo -e "|1|Oorna+8eFr+D/PU+OmEhWsSwQNs=|yMk5e99S/ZdGwvN2Yoy2ETkVFJw= ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmn6kY7stPr09RmQ8hCA/ZcGrQ+Z3Ijxf4JnBP3D1uTPOZDmYF1xGkRtEn9MGneYXtAN4TPIKzhObvgnAAxyr/dqamlReApmjFPEgq/hAfRfjfxZ1JYNowVdyOwgcesnREZuiQOD4bDo905nyF8OJAKERe4X/VGIvSXwMOx+my5urT4k/bHbsDOy1AbP/vnz3hS4R2tCgqvKP24hekBc0cBYVGHWXL2K7rg7dcXj12gwn9kmPHv1WwzDVZfY/n6X7CmNnjwEYbxVg9vepvD6vb8z2FzhJrhUdB8RVPZHnZ8csROaGbzTLJucG/DZ3M+bj/LHS7h+5RYtGzjBGaZg7D" >> $HOME/.ssh/known_hosts
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
@@ -21,4 +21,4 @@ jobs:
         yarn install --frozen-lockfile
         yarn build
     - run: >
-        rsync -e "ssh -v" -avz build/ ckanich@bert.cs.uic.edu:
+        rsync -e "ssh -v" -avz build/ mghas2@cs361.cs.uic.edu:
