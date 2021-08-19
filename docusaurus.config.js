@@ -4,8 +4,8 @@ const path = require("path");
 module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
-  url: "http://0.0.0.0:3000/cs361/f21/",
-  baseUrl: "/cs361/s21/",
+  url: "http://0.0.0.0:3000/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",

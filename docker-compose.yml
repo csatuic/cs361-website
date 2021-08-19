@@ -7,6 +7,7 @@ services:
       - "443:443"
     volumes:
       - ./ssl:/etc/nginx/certs
+      - ./ssl:/etc/nginx/dhparam
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
   moe:
@@ -16,7 +17,7 @@ services:
     expose:
       - "3000"
     environment:
-      - VIRTUAL_HOST=fb.paperscut.com
+      - VIRTUAL_HOST=cs361.cs.uic.edu
 networks:
   default:
     external:
