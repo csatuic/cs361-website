@@ -10,12 +10,14 @@ services:
       - ./ssl:/etc/nginx/dhparam
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
-  moe:
+  cs361:
+    image: flashspys/nginx-static
+    container_name: cs361-website 
+    ports:
+      - 3000:80
+    volumes: 
+      - ./build:/static
     restart: on-failure
-    image: qoomon/docker-host
-    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
-    expose:
-      - "3000"
     environment:
       - VIRTUAL_HOST=cs361.cs.uic.edu
 networks:
