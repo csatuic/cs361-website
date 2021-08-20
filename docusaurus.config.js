@@ -61,7 +61,7 @@ module.exports = {
             },
             {
               label: "Gradescope",
-              href: "https://www.gradescope.com/courses/225629",
+              href: "https://www.gradescope.com/courses/293389",
             }
           ],
         },
