@@ -4,8 +4,8 @@ const path = require("path");
 module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
-  url: "https://cs361.cs.uic.edu/",
-  baseUrl: "/",
+  url: "https://www.cs.uic.edu/~ckanich/cs361/s21/",
+  baseUrl: "/~ckanich/cs361/s21/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/uic.svg",
@@ -61,7 +61,7 @@ module.exports = {
             },
             {
               label: "Gradescope",
-              href: "https://www.gradescope.com/courses/293389",
+              href: "https://www.gradescope.com/courses/225629",
             }
           ],
         },
@@ -69,8 +69,8 @@ module.exports = {
           title: "More",
           items: [
             {
-              label: "Jason Polakis",
-              to: "https://www.cs.uic.edu/~polakis/",
+              label: "Chris Kanich",
+              to: "https://www.cs.uic.edu/~ckanich/",
             },
             {
               label: "GitHub",
