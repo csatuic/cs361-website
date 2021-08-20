@@ -2,7 +2,7 @@
 title: week 1 lab
 description: course intro
 layout: default
-date: 2021-01-11T17:00:00-6:00
+date: 2021-08-30T17:00:00-6:00
 # notes gets passed through markdownify
 
  
