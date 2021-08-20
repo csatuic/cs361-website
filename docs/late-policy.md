@@ -13,13 +13,13 @@ didn't turn it in because it wasn't compiling, or couldn't upload it to git, or 
 to gradescope. You can turn in homework assignments an unlimited number of times, so we recommend
 that you turn them in early and often.
 
-Because these deadlines are so rigid, by default we will not include your lowest exam, your lowest
-homework, and your two lowest lab, discussion, and quiz scores in your final grade for the class.
+Because these deadlines are so rigid, by default we will not include your lowest
+homework and your lowest lab, discussion, and quiz scores in your final grade for the class.
 The later assignments and exams in the course are more difficult than the earlier ones, and there is
 no exceptional late policy - we recommend that you do not use these unless you genuinely need to, so
 that they're available if unexpected issues come up.
 
-If your lowest exam and/or lowest homework grades are higher than your course average, we will
-include them in the calculation of your final grade. This means that your lowest exam and lowest
-homework can't *hurt* your final grade, they can only help it, so it will  always be worth it to
+If your lowest lab and/or lowest homework grades are higher than your course average, we will
+include them in the calculation of your final grade. This means that your lowest lab and lowest
+homework can't *hurt* your final grade, they can only help it, so it will always be worth it to
 complete every assignment.
