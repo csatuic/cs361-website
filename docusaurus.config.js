@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
   title: "CS 361: Systems Programming",
   tagline: "Getting to know your operating system",
-  url: "https://cs361.cs.uic.edu/",
+  url: "https://cs361-a.cs.uic.edu/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
