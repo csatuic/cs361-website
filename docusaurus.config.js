@@ -57,7 +57,7 @@ module.exports = {
           items: [
             {
               label: "Piazza Q&A",
-              href: "https://piazza.com/class/kjs0fa9l97y53k",
+              href: "https://piazza.com/class/ksknvkkkqk95q6",
             },
             {
               label: "Gradescope",
