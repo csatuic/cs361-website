@@ -8,7 +8,7 @@ due:
    date: 2021-08-31T23:59:00-6:00
    description: Turning in using Gradescope
 github_link: https://classroom.github.com/a/tQb_z3bT 
-date: 2021-08-24
+date: 2021-08-25
 ---
 import Link from '@docusaurus/Link';
 import site from '@site/course.json'
