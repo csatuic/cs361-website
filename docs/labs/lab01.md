@@ -28,6 +28,6 @@ The deliveries for this lab:
 
 | Task | Points |
 |---|---|
-| Lab 1 Submission (autograder) | 6 point |
+| Lab 1 Submission (autograder) | 5 point |
 | Lab 1 Quiz | 4 point |
-| Total points | 10 points |
+| Total points | 9 points |
