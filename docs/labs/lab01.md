@@ -10,7 +10,7 @@ date: 2021-08-30T17:00:00-6:00
 
 # Development Environment and Basic Commands 
 
-In this lab, we will go over setting up your development environment and learning the expected workflow for assignment submission. Our goal is to ensure that all students have set up their environment and are familiar with the submission process. For all assignments, you can either use your development environment or SSH to `systems[1-4]` using `ssh YOUR-NET-ID@system1.cs.uic.edu` command. Moreover, during this lab, we will cover some basic Linux and Git command which are helpful throughout this semester.
+In this lab, we will go over setting up your development environment and learning the expected workflow for assignment submission. Our goal is to ensure that all students have set up their environment and are familiar with the submission process. For all assignments, you can either use your development environment or SSH to `systems[1-4]` using `ssh YOUR-NET-ID@systems1.cs.uic.edu` command. Moreover, during this lab, we will cover some basic Linux and Git command which are helpful throughout this semester.
 
 The deliveries for this lab:
 
