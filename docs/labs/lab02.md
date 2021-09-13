@@ -16,7 +16,7 @@ The deliveries for this lab:
 1. Visit [this GitHub classroom link](https://classroom.github.com/a/oDMrZs4R) and accept the assignment (if you haven't already). You can compile the code with `make` and check the symbol table with `make test`
 2. Complete the To-Dos provided in the comment
    1. Import the `var_from_extra` variable from `extra.c` into `lab2.c` by adding a keyword to the declaration. 
-   2. Change section value of `change_ndx_to_6` variable to 6. Refer [String Literal Documentation](https://en.cppreference.com/w/c/language/string_literal)
+   2. Change section value of `change_ndx_to_6` variable to 6. 
    3. Bind for `change_bind_to_local` variable is `GLOBAL` in the skeleton code. Change it to `LOCAL`. Hint: Expecting a keyword to be added in the declaration. 
    3. Make sure that `make_visible` variable from main function is visible in symbol by adding a keyword to the declaration.
    4. Stage and commit the changes and push them to the remote repository. 
