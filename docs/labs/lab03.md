@@ -106,6 +106,6 @@ Complete this [Gradescope Quiz](https://www.gradescope.com/courses/293389/assign
 
 | Task | Points |
 |---|---|
-| Gradescope Quiz | 8 points |
-| Total points | 8 points |
+| Gradescope Quiz | 7 points |
+| Total points | 7 points |
 
