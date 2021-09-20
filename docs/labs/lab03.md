@@ -7,15 +7,16 @@ date: 2021-09-20T17:00:00-6:00
 
 
 ---
+import Link from '@docusaurus/Link';
 
 ## Lab 3: Program Debugging
 
 In this lab, you will explore some debugging tools which are helpful when trying to debug a fully compiled executable. You have to debug lab3 assignment with these tools and complete the Gradescope Quiz.
 
-This lab also helps you get started with Homework 2. You have two options for Homework 2:
+This lab also helps you get started with <Link to="/homeworks/homework2">Homework 2</Link>. You have two options for Homework 2:
 
 1. Use `systems[1-4].cs.uic.edu` (e.g. systems1, systems2, etc.), or
-2. Use the `.devcontainer` folder that is included with the skeleton code to set up your Docker container environment. **Before opening your workspace in the container, you need to modify both `Dockerfile` and `devcontainer.json` files and replace the `netid` with your UIC NetID (`ARG USERNAME=netId` and `"remoteUser": "netId"`).**. 
+2. Use the `.devcontainer` folder that is included with the skeleton code to set up your Docker container environment. **Before opening your workspace in the container, you need to modify both `Dockerfile` and `devcontainer.json` files and replace the `netid` with your UIC NetID (`ARG USERNAME=netId` and `"remoteUser": "netId"`).** 
 
 In either case, when you run `whoami` command in the terminal, it should return your UIC NetID. If you are using containers (option 2), **please do this during the lab to make sure your environment is ready for Homework 2**.
 
