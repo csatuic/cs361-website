@@ -12,6 +12,13 @@ date: 2021-09-20T17:00:00-6:00
 
 In this lab, you will explore some debugging tools which are helpful when trying to debug a fully compiled executable. You have to debug lab3 assignment with these tools and complete the Gradescope Quiz.
 
+This lab also helps you get started with Homework 2. You have two options for Homework 2:
+
+1. Use `systems[1-4].cs.uic.edu` (e.g. systems1, systems2, etc.), or
+2. Use the `.devcontainer` folder that is included with the skeleton code to set up your Docker container environment. **Before opening your workspace in the container, you need to modify both `Dockerfile` and `devcontainer.json` files and replace the `netid` with your UIC NetID (`ARG USERNAME=netId` and `"remoteUser": "netId"`).**. 
+
+In either case, when you run `whoami` command in the terminal, it should return your UIC NetID. If you are using containers (option 2), **please do this during the lab to make sure your environment is ready for Homework 2**.
+
 ## gdb
 
 1.  Before we begin, log in to `systems[1-4].cs.uic.edu` or your docker devcontainer, and accept the assignment at [this github classroom link](https://classroom.github.com/a/OboRfTnp) which contains the practice code for this lab session. For this practice session, we are giving you the source code for the files you will be practicing on - but for homework, you will only get the binaries.
@@ -52,9 +59,10 @@ In this lab, you will explore some debugging tools which are helpful when trying
 
 3.  strace will print out a bunch of systems calls, most of which are
     actually the operating system creating, loading and running the
-    executable. The first line of output we're interested in looks like:\
-    `write(1, "Hello, operating system", 24Hello, operating system\
-    ) = 24"`\
+    executable. The first line of output we're interested in looks like:
+    `write(1, "Hello, operating system\n", 24Hello, operating system\
+    ) = 24"`
+
     Note that this is actually one line `("write(1, "Hello, operating
     system", 24) = 24")` being interrupted by our program printing.
 
