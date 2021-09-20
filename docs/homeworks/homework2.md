@@ -78,7 +78,7 @@ The executable files are available in the classroom repository and can be access
 
 Both `secrets.txt` and `howto.txt` **must be submitted to Gradescope via GitHub**. While grading `secrets.txt` will be done automatically, the `howto.txt` will be graded by hand. You should have both files in your submission. If you do not fill `secrets.txt` out exactly as directed, autograding will fail. If you do not complete your assignment on any of `systems[1-4].cs.uic.edu` machines or the Docker container, autograder may fail. If you have issues with the autograder, please contact us via Piazza ASAP. **Technical issues within 36 hours of the deadline will not be an excuse for submitting the assignment improperly or late.**
 
-The first 4 are each worth 1 point each, the final one is worth 4 points. An additional 2 points will be given for each correct howto.
+The first 4 are each worth 1 point each, the final one is worth 4 points. An additional 1 point will be given for each correct howto.
 
 ### Due Date
 
