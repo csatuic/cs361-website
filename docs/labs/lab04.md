@@ -13,7 +13,7 @@ In this lab, you will learn how to create and use dynamic libraries which helps 
 
 1. Before we begin, accept the assignment at [this github classroom link](https://classroom.github.com/a/pBqI0fin). The github repository contains the practice code for this lab session. Check out the repository after logging in to systems[1-4].cs.uic.edu or clone the repository and open your workspace in the development container. 
 2. Run `make` to create the compiled binary executable `uselib`. Try running it with `./uselib`. You should get an error that says "./uselib: error while loading shared libraries: libsess4.so: cannot open shared object file: No such file or directory".
-3. This error is telling you that your runtime environment cannot find the shared library `libsess4.so` that the `uselib` executable depends on. In order to tell it where to look for this library, you will need to set the `LD_LIBRARY_PATH` environment variable. To do this, run the command `export LD_LIBRARY_PATH=<your current directory>:$LD_LIBRARY_PATH` with `<your current directory>` changed appropriately. You can use `PWD` environment variable which points to the current directory: `export LD_LIBRARY_PATH=$(PWD):$LD_LIBRARY_PATH`
+3. This error is telling you that your runtime environment cannot find the shared library `libsess4.so` that the `uselib` executable depends on. In order to tell it where to look for this library, you will need to set the `LD_LIBRARY_PATH` environment variable. To do this, run the command `export LD_LIBRARY_PATH=<your current directory>:$LD_LIBRARY_PATH` with `<your current directory>` changed appropriately. You can use `PWD` environment variable which points to the current directory: `export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH`
 4. If you rerun `./uselib` it should now run.
 5. Answer the first Gradescope question.
 
@@ -35,7 +35,7 @@ In this lab, you will learn how to create and use dynamic libraries which helps 
 2. Start adding code to the Makefile to compile the shared library you wrote. First, you will need to compile your code into a position independent object file, using the `-fpic` flag. (For `libsess4.so`, this is the line `gcc -c -Wall -Werror -fpic sess4.c`)
 3. Next, add a line to compile the object file you just created into a shared library with the `-shared` flag. (For `libsess4.so`, this is the line `gcc -shared -o libsess4.so sess4.o`). The name of your shared library file should begin with `lib` and end with `.so`.
 4. Add lines to the Makefile to compile the code that uses your shared library. In order to do this, you will need to tell gcc where to you look for your library, and which library to look for. 
-    - Where to look for libraries: "`-L`**path**" tells gcc where to look for libraries. For `libsess4.so`, we use `-L$(PWD)`, using the `PWD` environment variable to tell gcc to look in the current directory. 
+    - Where to look for libraries: "`-L`**path**" tells gcc where to look for libraries. For `libsess4.so`, we use `-L$(PWD)` (note that the parentheses around `PWD` are required in the Makefile), using the `PWD` environment variable to tell gcc to look in the current directory. 
     - Which library to use: We use `-lsess4` to tell gcc to use `libsess4.so`. gcc assumes that all libraries begin with `lib`, and end with `.so` or `.a`, so you just need to specify the rest of the name, starting with `-l`.
 5. Answer the remaining Gradescope questions.
 
