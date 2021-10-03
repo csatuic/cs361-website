@@ -10,7 +10,8 @@ module.exports = {
         "items": [
             "homeworks/homework0",
             "homeworks/homework1",
-            "homeworks/homework2"
+            "homeworks/homework2",
+            "homeworks/homework3"
         ]
     },
     {
@@ -20,7 +21,8 @@ module.exports = {
             "labs/lab01",
             "labs/lab02",
             "labs/lab03",
-            "labs/lab04"
+            "labs/lab04",
+            "labs/lab05"
         ]
     },
     {
