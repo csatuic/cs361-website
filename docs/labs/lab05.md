@@ -32,12 +32,12 @@ To start this week's lab, <Link to={frontMatter.github_link}>accept Homework 3</
 This skeleton code
 is a slightly modified version of the basic shell that is presented in the book in Chapter 8. In
 homework 3, we will be using `spawn` (instead of `fork`), to run simple commands and then we will be 
-adding the ability to handle signals (the topic of this week's lecture) and file redirection. This week's lab will help you do the first step.
+adding the ability to handle signals and file redirection. This week's lab will help you do the first step.
 
-If you'd like to go over the absolute basics of creating new processes and running different
-programs, checkout [these sample programs](https://github.com/csatuic/vscode-lectures/tree/master/lecture7).
+> If you'd like to go over the absolute basics of creating new processes and running different
+> programs, checkout [these sample programs](https://github.com/uic-cs361/cs361-lab5-example).
 
-To get started, clone the repository and get it started - as usual, you can either do this on your
+To get started, clone the homework repository and get it started - as usual, you can either do this on your
 laptop via a devcontainer or a systemsX machine on campus.
 
 Take a close look at `spawnshell.c`, and give yourself some time to understand what each function does.
@@ -63,13 +63,11 @@ function.
 ## What you need to do for this lab
 
 For the first half of the lab, you will be working on your own to understand `spawnshell.c` and 
-complete the `exec_cmd` function so that your shell can run simple commands (e.g., `ls`) . For second half complete the <Link to={frontMatter.gradescope_quiz}>Gradescope Quiz</Link>.
+complete the `exec_cmd` function so that your shell can run simple commands (e.g., `ls -la`) . 
+For the second half complete the <Link to={frontMatter.gradescope_quiz}>Gradescope Quiz</Link>.
 
-## Sample Input
-* ```/bin/echo hello world```
-* ```/bin/echo CS361 > cs361.txt```
-* ```/bin/ls -ltr | grep spawn```
-* ```/bin/echo hello &```
+Note: you can use the [sample programs](https://github.com/uic-cs361/cs361-lab5-example) to complete
+`exec_cmd` and answer questions 1 (hint: use `strace`).
 
 ## Total grade calculation
 
@@ -103,9 +101,10 @@ you to read your program's input from a file, rather than from the keyboard.
 For instance, if you have a file `input` that has the lines:
 
 ```
-pwd
-ls
-date +%Y%m%d
+/bin/echo hello world
+/bin/echo CS361 > cs361.txt
+/bin/ls -ltr | grep spawn
+/bin/echo hello &
 ```
 
 You can feed it to a new instance of a shell program by redirecting the input from that file by
