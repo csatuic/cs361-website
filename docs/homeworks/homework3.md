@@ -60,7 +60,7 @@ exactly one space between `CS361` and `>`, otherwise it cannot be detected by th
      (e.g. `sleep 10 &`) executes in your shell, the parent should run this command in the background
       and immediately print the prompt without waiting for the child process to terminate. Additionally,
       the parent process must reap the children processes and and avoid leaving zombie processes.
-      Your shell does **NOT** require to track child process's status. 
+      Your shell does **NOT** require to track background child process's status. 
 
 Non-goals:
    * The shell does **NOT** need to support restoring stopped background processes or handling multiple
