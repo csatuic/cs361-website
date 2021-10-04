@@ -40,8 +40,8 @@ exactly one space between `CS361` and `>`, otherwise it cannot be detected by th
   3. `$ command args < input_redirection > output_redirection`  Do both of the previous tasks at the
      same time.
   2. `$ command1 args | command2 args` Run command1 as in #1, but redirect the output of `command1` as input to `command2`. 
-  3. `$ command1 args ; command2 args` Run command1 as in #1, wait for it to
-     finish, and then run command 2 as in #1. 
+  3. `$ command1 args ; command2 args` Run command1 as in #1, wait for it to finish, and then run command 2 as in #1. 
+  3. `$ command1 args && command2 args` Run command2 as in #1 if and only if command 1 returns **zero exit status**.
   4. When any non-background `command` finishes, the parent should output the prompt again as
      normal. However, if the user executes the special command `?`, the shell should output
      `\npid:%d status:%d\n` (with the proper relevant values inserted into the format string), and
@@ -56,6 +56,11 @@ exactly one space between `CS361` and `>`, otherwise it cannot be detected by th
      shell should not exit when user presses `Ctrl-Z` or the process receives SIGTSTP but simply
      report that the SIGTSTP signal has been received by the shell. If your shell receives SIGTSTP,
      you must print the string "**caught sigtstp**" on a line by itself, and then show the prompt again.
+   * SIGCHLD - Generated when a child process has stopped or terminated. If a background `command` 
+     (e.g. `sleep 10 &`) executes in your shell, the parent should run this command in the background
+      and immediately print the prompt without waiting for the child process to terminate. Additionally,
+      the parent process must reap the children processes and and avoid leaving zombie processes.
+      Your shell does **NOT** require to track child process's status. 
 
 Non-goals:
    * The shell does **NOT** need to support restoring stopped background processes or handling multiple
@@ -109,7 +114,7 @@ You can feed it to a new instance of a shell program by redirecting the input fr
 adding the `<` character as an argument, then the name of the file:
 
 ```
-$ sh < input 
+cs361@home-desktop:~/repos/shell-skel$ sh < input 
 ```
 
 In addition to using `sh`, you can also run the skeleton code for the assignment in the same 
